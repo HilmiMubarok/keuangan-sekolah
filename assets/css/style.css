@@ -1,0 +1,13 @@
+.bg-login-image {
+	background: url(../img/logo_sekolah.jpg) !important;
+	background-position: center !important;
+	background-size: cover !important;
+}
+
+.form-search {
+	width: 60% !important;
+}
+
+a {
+	text-decoration: none !important;
+}

@@ -1,0 +1,40 @@
+.c {
+	border: 2px solid !important;
+}
+.body {
+	padding: 10px !important;
+}
+.body-header {
+	border-bottom: 2px solid !important;
+}
+.body-text {
+	padding: 10px !important;
+	font-weight: bold !important;
+	font-size: 22px !important;
+}
+header {
+	border-bottom: 2px solid !important;
+	padding: 10px !important;
+}
+.coll {
+	display: inline-block !important;
+	vertical-align:middle !important;
+}
+.nm_sekolah {
+	font-weight: bold !important;
+	font-size: 20px !important;
+	margin-right: 120px !important;
+}
+.alamat_sekolah {
+	width: 70% !important;
+	text-align: center !important;
+	margin-left: 40px !important;
+}
+.ttd {
+	
+	margin-top: 40px !important;
+	margin-left: 560px !important;
+}
+.content {
+	text-align: center !important;
+}
