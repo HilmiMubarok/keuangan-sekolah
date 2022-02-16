@@ -25,7 +25,9 @@ class Kelas extends CI_Controller
     public function simpan()
     {
         $nama = $this->input->post('nama_kelas');
+        $jurusan = $this->input->post('jurusan_id');
         $data = array(
+            'jurusan_id' => $jurusan,
             'nama_kelas' => $nama
         );
         $save = $this->KelasModel->save($data, 'kelas');

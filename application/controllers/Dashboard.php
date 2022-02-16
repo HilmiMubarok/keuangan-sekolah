@@ -7,6 +7,7 @@ class Dashboard extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->model('DashboardModel');
+		$this->load->model('KelasModel');
 		if ($this->session->userdata('logged_in') == FALSE ) {
 			redirect("auth");
 		}
@@ -17,7 +18,8 @@ class Dashboard extends CI_Controller {
 		$data['title']     = "Dashboard";
 
 		$data['jabatan'] = $this->session->userdata('role');
-		$data['nama_user'] = $this->session->userdata('name');		
+		$data['nama_user'] = $this->session->userdata('name');
+		$data['jumlah_kelas'] = $this->KelasModel->getTotal();		
 		// $data['at']        = count($this->DashboardModel->get('aktiva_tetap')->result());
 		// $data['atd']       = count($this->DashboardModel->get('at_dihentikan')->result());
 		// $data['penjualan'] = count($this->DashboardModel->get('penjualan')->result());

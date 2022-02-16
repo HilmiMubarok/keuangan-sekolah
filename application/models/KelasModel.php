@@ -10,6 +10,11 @@ class KelasModel extends CI_Model
         return $this->db->get('kelas')->result();
     }
 
+    public function getTotal()
+    {
+        return $this->db->get('kelas')->num_rows();
+    }
+
     public function get_by($where)
     {
         return $this->db->get_where("kelas", $where)->row();
