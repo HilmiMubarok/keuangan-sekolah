@@ -9,6 +9,11 @@ class JurusanModel extends CI_Model
         return $this->db->get('jurusan')->result();
     }
 
+    public function getTotal()
+    {
+        return $this->db->get('jurusan')->num_rows();
+    }
+
     public function get_by($where)
     {
         return $this->db->get_where("jurusan", $where)->row();

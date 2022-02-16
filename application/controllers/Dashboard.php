@@ -8,6 +8,8 @@ class Dashboard extends CI_Controller {
 		parent::__construct();
 		$this->load->model('DashboardModel');
 		$this->load->model('KelasModel');
+		$this->load->model('JurusanModel');
+
 		if ($this->session->userdata('logged_in') == FALSE ) {
 			redirect("auth");
 		}
@@ -20,10 +22,8 @@ class Dashboard extends CI_Controller {
 		$data['jabatan'] = $this->session->userdata('role');
 		$data['nama_user'] = $this->session->userdata('name');
 		$data['jumlah_kelas'] = $this->KelasModel->getTotal();		
-		// $data['at']        = count($this->DashboardModel->get('aktiva_tetap')->result());
-		// $data['atd']       = count($this->DashboardModel->get('at_dihentikan')->result());
-		// $data['penjualan'] = count($this->DashboardModel->get('penjualan')->result());
-
+		$data['jumlah_jurusan'] = $this->JurusanModel->getTotal();
+		
 		$this->load->view('templates/header', $data);
 		$this->load->view('templates/navbar', $data);
 		$this->load->view('dashboard.php', $data);
