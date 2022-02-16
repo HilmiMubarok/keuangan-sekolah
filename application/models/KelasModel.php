@@ -6,7 +6,8 @@ class KelasModel extends CI_Model
 
     public function get()
     {
-        return $this->db->get("kelas")->result();
+        $this->db->join('jurusan', 'jurusan.id_jurusan = kelas.jurusan_id');
+        return $this->db->get('kelas')->result();
     }
 
     public function get_by($where)

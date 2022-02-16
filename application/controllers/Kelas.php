@@ -5,7 +5,8 @@ class Kelas extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        $this->load->model('DashboardModel');
+        $this->load->model('KelasModel');
+        $this->load->model('JurusanModel');
     }
 
     public function index()
@@ -13,7 +14,8 @@ class Kelas extends CI_Controller
         $data['title'] = 'Kelas';
         $data['jabatan']   = $this->session->userdata('role');
         $data['nama_user'] = $this->session->userdata('name');
-        $data['kelas'] = $this->DashboardModel->get('kelas')->result();
+        $data['kelas'] = $this->KelasModel->get();
+        $data['jurusan'] = $this->JurusanModel->get();
         $this->load->view('templates/header', $data);
         $this->load->view('templates/navbar', $data);
         $this->load->view('kelas/index', $data);
@@ -26,7 +28,7 @@ class Kelas extends CI_Controller
         $data = array(
             'nama_kelas' => $nama
         );
-        $save = $this->DashboardModel->save($data, 'kelas');
+        $save = $this->KelasModel->save($data, 'kelas');
         if ($save) {
             $data = array(
                 'pesan' => 'Data Berhasil Disimpan',
@@ -50,7 +52,7 @@ class Kelas extends CI_Controller
         $data['jabatan']   = $this->session->userdata('role');
         $data['nama_user'] = $this->session->userdata('name');
 		$get_kelas      = array('id_kelas' => $this->uri->segment(3));
-		$data['kelas']  = $this->DashboardModel->get_by($get_kelas, 'kelas')->row();
+		$data['kelas']  = $this->KelasModel->get_by($get_kelas, 'kelas')->row();
 		$this->load->view('templates/header', $data);
 		$this->load->view('templates/navbar', $data);
 		$this->load->view('kelas/edit.php', $data);
@@ -64,7 +66,7 @@ class Kelas extends CI_Controller
         $data = array(
             'nama_kelas' => $nama
         );
-        $update = $this->DashboardModel->update($id, $data, 'kelas');
+        $update = $this->KelasModel->update($id, $data, 'kelas');
         if ($update) {
             $data = array(
                 'pesan' => 'Data Berhasil Diupdate',
@@ -89,7 +91,7 @@ class Kelas extends CI_Controller
 			'id_kelas' => $this->uri->segment(3)
 		);
 
-		$hapus = $this->DashboardModel->delete($where, 'kelas');
+		$hapus = $this->KelasModel->delete($where, 'kelas');
 
 		if ($hapus) {
 			$data = array(
