@@ -66,6 +66,31 @@ class Jurusan extends CI_Controller {
 		$this->load->view('templates/footer', $data);
 	}
 
+    public function update()
+    {
+        $id = array('id_jurusan' => $this->input->post('id_jurusan'));
+        $nama = $this->input->post('nama_jurusan');
+        $data = array(
+            'nama_jurusan' => $nama
+        );
+        $update = $this->DashboardModel->update($id, $data, 'jurusan');
+        if ($update) {
+            $data = array(
+                'pesan' => 'Data Berhasil Diupdate',
+                'icon'  => 'success'
+            );
+            $this->session->set_flashdata($data);
+            redirect("jurusan");
+        } else {
+            $data = array(
+                'pesan' => 'Data Gagal Diupdate',
+                'icon'  => 'danger'
+            );
+            $this->session->set_flashdata($data);
+            redirect("jurusan");
+        }
+    }
+
     public function hapus()
 	{
 		
