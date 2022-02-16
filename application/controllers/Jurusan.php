@@ -1,4 +1,3 @@
-<!-- codeigniter 3 controller -->
 <?php
 
 class Jurusan extends CI_Controller {
@@ -7,14 +6,6 @@ class Jurusan extends CI_Controller {
     {
         parent::__construct();
         $this->load->model('DashboardModel');
-        // $this->load->model('Jurusan_model');
-        // $this->load->model('Kelas_model');
-        // $this->load->model('Siswa_model');
-        // $this->load->model('Pengeluaran_model');
-        // $this->load->model('Pemasukan_model');
-        // $this->load->model('jurusan_model');
-        // $this->load->model('User_model');
-        // $this->load->library('form_validation');
     }
 
     public function index()
