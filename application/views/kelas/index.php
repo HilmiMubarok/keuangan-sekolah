@@ -58,6 +58,11 @@
                                 <td><?= $k->nama_jurusan ?></td>
                                 <?php if ($this->session->userdata('role') == "Bendahara"): ?>
                                 <td>
+                                    <a href="<?= base_url() ?>kelas/detail/<?= $k->id_kelas ?>">
+                                        <button class="btn btn-success text-white">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                    </a>
                                     <a href="<?= base_url() ?>kelas/edit/<?= $k->id_kelas ?>">
                                         <button class="btn btn-warning text-white">
                                             <i class="fas fa-edit"></i>

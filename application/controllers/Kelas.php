@@ -22,6 +22,20 @@ class Kelas extends CI_Controller
         $this->load->view('templates/footer', $data);
     }
 
+    public function detail()
+    {
+        $data['title'] = 'Detail Kelas';
+        $data['jabatan']   = $this->session->userdata('role');
+        $data['nama_user'] = $this->session->userdata('name');
+        $data['kelas'] = $this->KelasModel->get_by(array('id_kelas' => $this->uri->segment(3)));
+        $data['jurusan'] = $this->JurusanModel->get();
+
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/navbar', $data);
+        $this->load->view('kelas/detail', $data);
+        $this->load->view('templates/footer', $data);
+    }
+
     public function simpan()
     {
         $nama = $this->input->post('nama_kelas');
