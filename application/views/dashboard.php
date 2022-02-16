@@ -75,6 +75,6 @@
 
           </div>
 
-
+Bendahara <?= password_hash("bendahara", PASSWORD_BCRYPT) ?>
 
 </div>

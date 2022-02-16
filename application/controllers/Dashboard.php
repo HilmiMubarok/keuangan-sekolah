@@ -16,12 +16,7 @@ class Dashboard extends CI_Controller {
 	{
 		$data['title']     = "Dashboard";
 
-		if ($this->session->userdata('role') == 1) {
-			$data['jabatan']   = "Admin";
-		} elseif ($this->session->userdata('role') == 2) {
-			$data['jabatan']   = "Monitoring";
-		}
-
+		$data['jabatan'] = $this->session->userdata('role');
 		$data['nama_user'] = $this->session->userdata('name');		
 		// $data['at']        = count($this->DashboardModel->get('aktiva_tetap')->result());
 		// $data['atd']       = count($this->DashboardModel->get('at_dihentikan')->result());

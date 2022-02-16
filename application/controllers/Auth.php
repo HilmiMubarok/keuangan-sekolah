@@ -26,17 +26,31 @@ class Auth extends CI_Controller {
 		$auth     = array('user_username' => $username );
 		$res      = $this->AuthModel->cek_login('users', $auth)->row();
 
-		
-
-
 		if (password_verify($password, $res->user_pass)) {
-			$user_data = array(
-				'id'        => $res->id_user,
-				'role' => $res->role_id,
-				'username' => $res->user_username,
-				'name' => $res->user_name,
-				'logged_in' => TRUE
-			);
+
+			if($res->role_id === 1){
+				$user_data = array(
+					'id'        => $res->id_user,
+					'role' => 'Admin',
+					'name' => $res->user_name,
+					'logged_in' => TRUE
+				);
+			} elseif($res->role_id === 2) {
+				$user_data = array(
+					'id'        => $res->id_user,
+					'role' => 'Monitoring',
+					'name' => $res->user_name,
+					'logged_in' => TRUE
+				);
+			} else{
+				$user_data = array(
+					'id'        => $res->id_user,
+					'role' => 'Bendahara',
+					'name' => $res->user_name,
+					'logged_in' => TRUE
+				);
+			}
+			
 
 
 			$this->session->set_userdata($user_data);
