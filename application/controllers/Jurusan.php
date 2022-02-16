@@ -53,6 +53,19 @@ class Jurusan extends CI_Controller {
         }
     }
 
+    public function edit()
+	{
+		$data['title']     = "Edit Jurusan";
+        $data['jabatan']   = $this->session->userdata('role');
+        $data['nama_user'] = $this->session->userdata('name');
+		$get_jurusan      = array('id_jurusan' => $this->uri->segment(3));
+		$data['jurusan']  = $this->DashboardModel->get_by($get_jurusan, 'jurusan')->row();
+		$this->load->view('templates/header', $data);
+		$this->load->view('templates/navbar', $data);
+		$this->load->view('jurusan/edit.php', $data);
+		$this->load->view('templates/footer', $data);
+	}
+
     public function hapus()
 	{
 		
