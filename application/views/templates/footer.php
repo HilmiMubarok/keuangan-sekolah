@@ -33,6 +33,18 @@
   <script src="<?= base_url() ?>assets/js/sb-admin-2.min.js"></script>
   <script src="<?= base_url() ?>assets/js/datepicker.min.js"></script>
 
+  <!-- dataTable -->
+  <script src="<?= base_url() ?>assets/js/jquery.dataTables.min.js"></script>
+  <script src="<?= base_url() ?>assets/js/dataTables.bootstrap4.min.js"></script>
+  <script src="<?= base_url() ?>assets/js/dataTables.responsive.min.js"></script>
+  <script src="<?= base_url() ?>assets/js/responsive.bootstrap4.min.js"></script>
+
+  <script>
+    $(document).ready(function() {
+      $('#dataTable').DataTable();
+    } );
+  </script>
+
   <script>
     $('.datepicker-atd').datepicker({
         format: "yyyy"
