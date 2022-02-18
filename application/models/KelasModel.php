@@ -10,6 +10,14 @@ class KelasModel extends CI_Model
         return $this->db->get('kelas')->result();
     }
 
+    public function getSiswaByKelas($kelas_id)
+    {
+        $this->db->join('kelas', 'kelas.id_kelas = siswa.kelas_id');
+        $this->db->join('jurusan', 'jurusan.id_jurusan = kelas.jurusan_id');
+        $this->db->where('kelas.id_kelas', $kelas_id);
+        return $this->db->get('siswa')->num_rows();
+    }
+
     public function getTotal()
     {
         return $this->db->get('kelas')->num_rows();
