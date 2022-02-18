@@ -6,16 +6,7 @@ class SiswaModel extends CI_Model
 
     public function get()
     {
-        $this->db->join('jurusan', 'jurusan.id_jurusan = kelas.jurusan_id');
-        return $this->db->get('kelas')->result();
-    }
-
-    public function getSiswaByKelas($kelas_id)
-    {
-        $this->db->join('kelas', 'kelas.id_kelas = siswa.kelas_id');
-        $this->db->join('jurusan', 'jurusan.id_jurusan = kelas.jurusan_id');
-        $this->db->where('kelas.id_kelas', $kelas_id);
-        return $this->db->get('siswa')->num_rows();
+        return $this->db->get('siswa')->result();
     }
 
     public function getTotal()

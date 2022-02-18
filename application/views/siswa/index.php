@@ -25,32 +25,33 @@
             <table id="dataTable" class="table table-bordered table-hover table-striped dt-responsive nowrap">
                 <thead>
                     <tr>
-                        <th>sadasd</th>
-                        <th>laksd</th>
-                        <th>sadjahsjd</th>
+                        <th>Nama</th>
+                        <th>Kelas</th>
+                        <th>Alamat</th>
+                        <th>No. Telepon</th>
+                        <th>Opsi</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>asddddajkshd</td>
-                        <td>aksjaaaksd</td>
-                        <td>asdadghasd</td>
-                    </tr>
-                    <tr>
-                        <td>asdadajkshd</td>
-                        <td>aksjdhaksd</td>
-                        <td>asdjhasdghasd</td>
-                    </tr>
-                    <tr>
-                        <td>asdjasdajkshd</td>
-                        <td>aksjdhaksd</td>
-                        <td>asdjhasdghasd</td>
-                    </tr>
-                    <tr>
-                        <td>asdjasdajkshd</td>
-                        <td>aksjdhaksd</td>
-                        <td>asdjhasdghasd</td>
-                    </tr>
+                    <?php foreach($siswa as $s): ?>
+                        <tr>
+                            <td>Hilmi</td>
+                            <td>XI RPL 1</td>
+                            <td>Weleri</td>
+                            <td>08312390237</td>
+                            <td>
+                                <a href="" class="btn btn-success text-white">
+                                    <i class="fas fa-eye"></i>
+                                </a>
+                                <a href="" class="btn btn-warning text-white">
+                                    <i class="fas fa-edit"></i>
+                                </a>
+                                <a href="" class="btn btn-danger">
+                                    <i class="fas fa-trash"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    <?php endforeach ?>
                 </tbody>
             </table>
         </div>

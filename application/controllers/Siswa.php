@@ -6,7 +6,7 @@ class Siswa extends CI_Controller
     {
         parent::__construct();
         // $this->load->model('KelasModel');
-        // $this->load->model('JurusanModel');
+        $this->load->model('SiswaModel');
     }
 
     public function index()
@@ -14,6 +14,9 @@ class Siswa extends CI_Controller
         $data['title'] = 'Siswa';
         $data['jabatan']   = $this->session->userdata('role');
         $data['nama_user'] = $this->session->userdata('name');
+        $data['siswa'] = $this->SiswaModel->get();
+
+
         // $data['kelas'] = $this->KelasModel->get();
         // $data['jurusan'] = $this->JurusanModel->get();
         $this->load->view('templates/header', $data);
