@@ -8,11 +8,25 @@
         </ol>
     </nav>
 
+    <!-- card informasi kelas -->
+    <div class="card mb-3">
+        <div class="card-header">
+            <h5 class="card-title">Informasi Kelas</h5>
+        </div>
+        <div class="card-body">
+            <ul>
+                <li>Nama Kelas : <b><?= $kelas->nama_kelas ?></b></li>
+                <li>Jumlah Siswa : <b><?= 1 ?></b></li>
+            </ul>
+        </div>
+    </div>
+
     <div class="card">
+        <div class="card-header">
+            <h5>Data Siswa Kelas <?= $kelas->nama_kelas ?></h5>
+        </div>
         <div class="card-body">
 
-            <h3>Data Siswa Kelas <?= $kelas->nama_kelas ?></h3>
-            <hr>
             <a href="" class="btn btn-primary mb-3"><i class="fas fa-plus"></i> Tambah Siswa</a>
             <div class="table-responsive">
                 <table class="table table-bordered table-striped table-hover">
