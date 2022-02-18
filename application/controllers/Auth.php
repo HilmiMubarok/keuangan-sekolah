@@ -28,14 +28,14 @@ class Auth extends CI_Controller {
 
 		if (password_verify($password, $res->user_pass)) {
 
-			if($res->role_id === 1){
+			if($res->role_id == 1){
 				$user_data = array(
 					'id'        => $res->id_user,
 					'role' => 'Admin',
 					'name' => $res->user_name,
 					'logged_in' => TRUE
 				);
-			} elseif($res->role_id === 2) {
+			} elseif($res->role_id == 2) {
 				$user_data = array(
 					'id'        => $res->id_user,
 					'role' => 'Monitoring',
@@ -51,8 +51,6 @@ class Auth extends CI_Controller {
 				);
 			}
 			
-
-
 			$this->session->set_userdata($user_data);
 
 			redirect(base_url("dashboard"));
