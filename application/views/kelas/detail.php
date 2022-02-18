@@ -10,7 +10,7 @@
 
     <!-- card informasi kelas -->
     <div class="card mb-3">
-        <div class="card-header">
+        <div class="card-header bg-primary text-white">
             <h5 class="card-title">Informasi Kelas</h5>
         </div>
         <div class="card-body">
@@ -22,12 +22,17 @@
     </div>
 
     <div class="card">
-        <div class="card-header">
+        <div class="card-header bg-success text-white">
             <h5>Data Siswa Kelas <?= $kelas->nama_kelas ?></h5>
         </div>
         <div class="card-body">
 
-            <a href="" class="btn btn-primary mb-3"><i class="fas fa-plus"></i> Tambah Siswa</a>
+            <button class="btn btn-primary mb-3" data-toggle="modal" data-target="#modalAddSiswa">
+                <i class="fas fa-plus"></i> Tambah Siswa
+            </button>
+            <button class="btn btn-danger mb-3" data-toggle="modal" data-target="#modalImportSiswa">
+                <i class="fas fa-download"></i> Import Siswa
+            </button>
             <div class="table-responsive">
                 <table class="table table-bordered table-striped table-hover">
                     <thead>
@@ -66,4 +71,116 @@
             </div>
         </div>
     </div>
+
+
+
+    <!-- Modal Add Siswa -->
+    <div class="modal fade" id="modalAddSiswa" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-xl">
+            <div class="modal-content">
+                <div class="modal-header bg-primary text-white">
+                    <h5 class="modal-title">
+                        Tambah Siswa
+                    </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="<?= base_url() ?>siswa/saveByKelas/<?= $kelas->id_kelas ?>">
+                        <input type="hidden" name="kelas_id" value="<?= $kelas->id_kelas ?>">
+                        <div class="form-group">
+                            <label>NIS</label>
+                            <input type="number" name="nis" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>NISN</label>
+                            <input type="number" name="nisn" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>Nama</label>
+                            <input type="text" class="form-control" name="nama">
+                        </div>
+                        <div class="form-group">
+                            <label>Jenis Kelamin</label>
+                            <select name="jenkel" class="form-control">
+                                <option value="L">Laki-Laki</option>
+                                <option value="P">Perempuan</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Tempat Lahir</label>
+                            <input type="text" name="tempat_lahir" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>Tanggal Lahir</label>
+                            <input type="date" name="tanggal_lahir" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>Alamat</label>
+                            <textarea name="alamat" class="form-control" cols="30" rows="5"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Nama Ayah</label>
+                            <input type="text" name="nama_ayah" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>Nama Ibu</label>
+                            <input type="text" name="nama_ibu" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>Pekerjaan</label>
+                            <input type="text" name="pekerjaan_ortu" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>Asal Sekolah</label>
+                            <input type="text" name="asal_sekolah" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>No. Telepon</label>
+                            <input type="number" name="telp" class="form-control">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                        <button type="sumbit" class="btn btn-primary">Simpan Data</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>  
+    <!-- End Modal -->
+
+    <!-- Modal Import Siswa -->
+    <div class="modal fade" id="modalImportSiswa" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-danger text-white">
+                    <h5 class="modal-title">
+                        Import Siswa
+                    </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="">
+                        <div class="form-group">
+                            <label>Pilih File</label>
+                            <input type="file" class="form-control">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                        <button type="submit" class="btn btn-primary">Import</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>  
+    <!-- End Modal -->
+
+
 </div>
+
+

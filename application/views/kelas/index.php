@@ -61,9 +61,7 @@
                                 <th>No</th>
                                 <th>Nama Kelas</th>
                                 <th>Jurusan</th>
-                                <?php if ($this->session->userdata('role') == "Bendahara"): ?>
                                 <th>Opsi</th>
-                                <?php endif ?>
                             </tr>
                         </thead>
                         <tbody>
@@ -78,7 +76,6 @@
                                 <td><?= $no ?></td>
                                 <td><?= $k->nama_kelas ?></td>
                                 <td><?= $k->nama_jurusan ?></td>
-                                <?php if ($this->session->userdata('role') == "Bendahara"): ?>
                                 <td>
                                     <a href="<?= base_url() ?>kelas/detail/<?= $k->id_kelas ?>">
                                         <button class="btn btn-success text-white">
@@ -96,7 +93,6 @@
                                         </button>
                                     </a>
                                 </td>
-                                <?php endif ?>
                             </tr>
         <?php $no++; endforeach ?>
                         </tbody>
