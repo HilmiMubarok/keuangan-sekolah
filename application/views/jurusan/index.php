@@ -6,26 +6,17 @@
 		</div>
 	<?php endif ?>
 
-	<?php if ($this->session->userdata('role') == "Bendahara"): ?>
-	<div class="card shadow mb-3">
-		<div class="card-body">
-				
-			<div class="row">
-				<div class="col-6">
-                    <h3 class="mb-3">Tambah Jurusan</h3>
-                    <form action="<?= base_url("jurusan/simpan") ?>" method="POST">
-                        <div class="form-group">
-                            <label for="">Nama jurusan</label>
-                            <input type="text" name="nama_jurusan" class="form-control">
-                        </div>
-                        <button type="submit" class="btn btn-primary mb-3">
-                            <i class="fas fa-save"></i> Simpan
-                        </button>
-					</form>
-				</div>
-				<div class="col-6 mx-auto">
-                    <h3 class="mb-5">Daftar Jurusan</h3>
-					<table class="table table-hover table-stripped table-bordered">
+    <div class="row">
+        <div class="col-6">
+
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="card-title">
+                        Daftar Jurusan
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <table class="table table-hover table-stripped table-bordered">
                         <thead>
                             <tr>
                                 <th>No</th>
@@ -64,10 +55,31 @@
         <?php $no++; endforeach ?>
                         </tbody>
                     </table>
-				</div>
-			</div>
-		</div>
-	</div> <!-- End Card -->
-	<?php endif ?>
+                </div>
+            </div>
+
+        </div> <!-- End Col -->
+        <div class="col-6">
+            
+
+            <div class="card">
+                <div class="card-header bg-success text-white">
+                    <h5 class="card-title">Tambah Jurusan</h5>
+                </div>
+                <div class="card-body">
+                    <form action="<?= base_url("jurusan/simpan") ?>" method="POST">
+                        <div class="form-group">
+                            <label for="">Nama jurusan</label>
+                            <input type="text" name="nama_jurusan" class="form-control">
+                        </div>
+                        <button type="submit" class="btn btn-primary mb-3">
+                            <i class="fas fa-save"></i> Simpan
+                        </button>
+					</form>
+                </div>
+            </div>
+        
+        </div> <!-- End Col -->
+    </div>
 	
 </div>
