@@ -31,9 +31,7 @@
                             <tr>
                                 <th>No</th>
                                 <th>Nama Jurusan</th>
-                                <?php if ($this->session->userdata('role') == "Bendahara"): ?>
                                 <th>Opsi</th>
-                                <?php endif ?>
                             </tr>
                         </thead>
                         <tbody>
@@ -47,7 +45,6 @@
                             <tr>
                                 <td><?= $no ?></td>
                                 <td><?= $j->nama_jurusan ?></td>
-                                <?php if ($this->session->userdata('role') == "Bendahara"): ?>
                                 <td>
                                     <a href="<?= base_url() ?>jurusan/edit/<?= $j->id_jurusan ?>">
                                         <button class="btn btn-warning text-white">
@@ -60,7 +57,6 @@
                                         </button>
                                     </a>
                                 </td>
-                                <?php endif ?>
                             </tr>
         <?php $no++; endforeach ?>
                         </tbody>

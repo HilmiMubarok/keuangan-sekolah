@@ -1,7 +1,16 @@
 <div class="container-fluid">
+
+	<nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="<?= base_url('dashboard') ?>">Dashboard</a></li>
+            <li class="breadcrumb-item"><a href="<?= base_url('jurusan') ?>">Jurusan</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Jurusan <?= $jurusan->nama_jurusan ?></li>
+        </ol>
+    </nav>
+	
 	<div class="card shadow">
-		<div class="card-header">
-			<h4>Edit Jurusan <?= $jurusan->nama_jurusan ?></h4>
+		<div class="card-header bg-primary text-white">
+			<h5>Edit Jurusan <?= $jurusan->nama_jurusan ?></h5>
 		</div>
 		<div class="card-body">
 			<form action="<?= base_url("jurusan/update") ?>" method="POST">
