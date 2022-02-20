@@ -164,10 +164,10 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form action="">
+                    <form action="<?= base_url() ?>import" enctype="multipart/form-data" method="POST">
                         <div class="form-group">
                             <label>Pilih File</label>
-                            <input type="file" class="form-control">
+                            <input type="file" name="file" class="form-control">
                         </div>
                     </div>
                     <div class="modal-footer">
