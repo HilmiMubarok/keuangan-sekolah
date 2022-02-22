@@ -12,6 +12,8 @@ class Import extends CI_Controller {
 		
         $file_data = $_FILES['file']['tmp_name'];
 
+        var_dump($_POST); die;
+
         $reader 	=  \PhpOffice\PhpSpreadsheet\IOFactory::createReaderForFile($file_data);
         $spreadsheet 	= $reader->load($file_data);
         $sheet_data 	= $spreadsheet->getActiveSheet()->toArray();
@@ -21,22 +23,6 @@ class Import extends CI_Controller {
 
         foreach($sheet_data as $key => $value) {
             if($key != 1) {
-                // $list[] = [
-                //     'nis' => $value[1],
-                //     'nama' => $value[2],
-                //     'kelas' => $value[3],
-                //     'jurusan' => $value[4],
-                //     'alamat' => $value[5],
-                //     'tgl_lahir' => $value[6],
-                //     'jenis_kelamin' => $value[7],
-                //     'agama' => $value[8],
-                //     'nama_ayah' => $value[9],
-                //     'pekerjaan_ayah' => $value[10],
-                //     'nama_ibu' => $value[11],
-                //     'pekerjaan_ibu' => $value[12],
-                //     'asal_sekolah' => $value[13],
-                //     'telp' => $value[13],
-                // ];
                 $list[] = [
                     'nis' => $value[1],
                     'nisn' => $value[2],
@@ -54,7 +40,8 @@ class Import extends CI_Controller {
             }
         }
         unset($list[0], $list[1], $list[2], $list[3]);
-        var_dump($list); die;
+        
+        var_dump(array_filter(array_splice($list, 0, 29))); die;
         
 	}
     

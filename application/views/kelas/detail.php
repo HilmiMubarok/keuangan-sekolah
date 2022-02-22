@@ -165,9 +165,14 @@
                 </div>
                 <div class="modal-body">
                     <form action="<?= base_url() ?>import" enctype="multipart/form-data" method="POST">
+                    <input type="hidden" name="kelas_id" value="<?= $kelas->id_kelas ?>">
                         <div class="form-group">
                             <label>Pilih File</label>
                             <input type="file" name="file" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>Jumlah Siswa</label>
+                            <input type="number" name="jml" class="form-control" required placeholder="Masukkan jumlah siswa yang ingin di import">
                         </div>
                     </div>
                     <div class="modal-footer">
