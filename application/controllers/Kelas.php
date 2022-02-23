@@ -26,9 +26,10 @@ class Kelas extends CI_Controller
     {
         $data['title'] = 'Detail Kelas';
         $data['jabatan']   = $this->session->userdata('role');
-        // $data['jumlah_siswa'] = $this->KelasModel->getSiswaByKelas($this->uri->segment(3));
         $data['nama_user'] = $this->session->userdata('name');
         $data['kelas'] = $this->KelasModel->get_by(array('id_kelas' => $this->uri->segment(3)));
+        $data['total_siswa'] = $this->KelasModel->getSiswaByKelas($this->uri->segment(3))->num_rows();
+        $data['siswa'] = $this->KelasModel->getSiswaByKelas($this->uri->segment(3))->result();
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/navbar', $data);

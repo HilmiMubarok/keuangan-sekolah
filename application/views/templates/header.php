@@ -44,7 +44,8 @@ https://cdn.datatables.net/responsive/2.2.9/css/responsive.bootstrap4.min.css --
 			<hr class="sidebar-divider my-0">
 
 			<li class="nav-item text-center my-3">
-				<img src="https://i.pravatar.cc/70" style="border-radius: 100%; display:block; margin:auto" alt="avatar">
+				<!-- https://i.pravatar.cc/70 -->
+				<img src="<?= base_url('assets/img/avatar.png') ?>" style="width: 70px; border-radius: 100%; display:block; margin:auto" alt="avatar">
 				<p class="mt-3 text-white font-weight-bold"><?= $nama_user ?> <br><?= $jabatan ?></p>
 			</li>
 

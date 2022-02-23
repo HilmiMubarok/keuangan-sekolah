@@ -16,7 +16,7 @@
         <div class="card-body">
             <ul>
                 <li>Nama Kelas : <b><?= $kelas->nama_kelas ?></b></li>
-                <li>Jumlah Siswa : <b><?= 1 ?></b></li>
+                <li>Jumlah Siswa : <b><?= $total_siswa ?></b></li>
             </ul>
         </div>
     </div>
@@ -34,7 +34,7 @@
                 <i class="fas fa-download"></i> Import Siswa
             </button>
             <div class="table-responsive">
-                <table class="table table-bordered table-striped table-hover">
+                <table class="table table-bordered table-striped table-hover" id="dataTable">
                     <thead>
                         <tr>
                             <th>No</th>
@@ -47,25 +47,27 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Hilmi Mubarok</td>
-                            <td>Laki-Laki</td>
-                            <td>Kendal, 19 Mei 1998</td>
-                            <td>Tambaksari, RT 02 RW 03 Rowosari Kendal</td>
-                            <td>083127903672</td>
-                            <td>
-                                <a href="" class="btn btn-success">
-                                    <i class="fas fa-eye"></i>
-                                </a>
-                                <a href="" class="btn btn-warning">
-                                    <i class="fas fa-edit"></i>
-                                </a>
-                                <a href="" class="btn btn-danger">
-                                    <i class="fas fa-trash"></i>
-                                </a>
-                            </td>
-                        </tr>
+                        <?php $no = 1; foreach($siswa as $s) :?>
+                            <tr>
+                                <td><?= $no++ ?></td>
+                                <td><?= $s->nama ?></td>
+                                <td><?= ($s->jenkel == "L" ? "Laki-Laki" : "Perempuan") ?></td>
+                                <td><?= $s->tempat_lahir.", ". $s->tgl_lahir ?></td>
+                                <td><?= $s->alamat ?></td>
+                                <td><?= $s->telp ?></td>
+                                <td>
+                                    <a href="" class="btn btn-success">
+                                        <i class="fas fa-eye"></i>
+                                    </a>
+                                    <a href="" class="btn btn-warning">
+                                        <i class="fas fa-edit"></i>
+                                    </a>
+                                    <a href="" class="btn btn-danger">
+                                        <i class="fas fa-trash"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        <?php endforeach ?>
                     </tbody>
                 </table>
             </div>

@@ -24,6 +24,11 @@ class SiswaModel extends CI_Model
         return $this->db->insert("siswa", $data);
     }
 
+    public function saveBatch($data)
+    {
+        return $this->db->insert_batch("siswa", $data);
+    }
+
     public function update($id, $data)
     {
         return $this->db->update("siswa", $data, $id);
