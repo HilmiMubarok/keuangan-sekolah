@@ -67,9 +67,14 @@ class Pemasukan extends CI_Controller {
     public function update()
     {
         $id = array('id_jenis_pemasukan' => $this->input->post('id_jenis_pemasukan'));
+        $nama_jenis_pemasukan = $this->input->post('nama_jenis_pemasukan');
         $nominal = $this->input->post('nominal');
+        $periode = $this->input->post('periode_pemasukan');
         $data = array(
+            'nama_jenis_pemasukan' => $nama_jenis_pemasukan,
+            'periode_pemasukan' => $periode,
             'nominal' => $nominal
+            
         );
         $update = $this->PemasukanModel->update($id, $data, 'jenis_pemasukan');
         if ($update) {

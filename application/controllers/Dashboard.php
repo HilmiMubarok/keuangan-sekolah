@@ -9,6 +9,7 @@ class Dashboard extends CI_Controller {
 		$this->load->model('DashboardModel');
 		$this->load->model('KelasModel');
 		$this->load->model('JurusanModel');
+		$this->load->model('SiswaModel');
 
 		if ($this->session->userdata('logged_in') == FALSE ) {
 			redirect("auth");
@@ -23,6 +24,7 @@ class Dashboard extends CI_Controller {
 		$data['nama_user'] = $this->session->userdata('name');
 		$data['jumlah_kelas'] = $this->KelasModel->getTotal();		
 		$data['jumlah_jurusan'] = $this->JurusanModel->getTotal();
+		$data['jumlah_siswa'] = $this->SiswaModel->getTotal();
 		
 		$this->load->view('templates/header', $data);
 		$this->load->view('templates/navbar', $data);
