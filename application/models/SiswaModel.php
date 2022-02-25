@@ -6,6 +6,8 @@ class SiswaModel extends CI_Model
 
     public function get()
     {
+        $this->db->join('kelas', 'kelas.id_kelas = siswa.kelas_id');
+        $this->db->join('jurusan', 'jurusan.id_jurusan = kelas.jurusan_id');
         return $this->db->get('siswa')->result();
     }
 

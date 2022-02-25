@@ -25,6 +25,7 @@
             <table id="dataTable" class="table table-bordered table-hover table-striped dt-responsive nowrap">
                 <thead>
                     <tr>
+                        <th>No</th>
                         <th>Nama</th>
                         <th>Kelas</th>
                         <th>Alamat</th>
@@ -33,12 +34,13 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?php foreach($siswa as $s): ?>
+                    <?php $no = 1; foreach($siswa as $s): ?>
                         <tr>
-                            <td>Hilmi</td>
-                            <td>XI RPL 1</td>
-                            <td>Weleri</td>
-                            <td>08312390237</td>
+                            <td><?= $no++ ?></td>
+                            <td><?= $s->nama ?></td>
+                            <td><?= $s->nama_kelas ?></td>
+                            <td><?= $s->alamat ?></td>
+                            <td><?= $s->telp ?></td>
                             <td>
                                 <a href="" class="btn btn-success text-white">
                                     <i class="fas fa-eye"></i>
