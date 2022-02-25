@@ -4,7 +4,7 @@
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="<?= base_url('dashboard') ?>">Dashboard</a></li>
             <li class="breadcrumb-item"><a href="<?= base_url('kelas') ?>">Kelas</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Kelas <?= $kelas->nama_kelas ?></li>
+            <li class="breadcrumb-item active" aria-current="page"><?= $kelas->nama_kelas ?></li>
         </ol>
     </nav>
 
@@ -16,7 +16,9 @@
         <div class="card-body">
             <ul>
                 <li>Nama Kelas : <b><?= $kelas->nama_kelas ?></b></li>
-                <li>Jumlah Siswa : <b><?= $total_siswa ?></b></li>
+                <li>Jumlah Siswa Laki-Laki : <b><?= $siswa_laki ?></b></li>
+                <li>Jumlah Siswa Perempuan : <b><?= $siswa_perempuan ?></b></li>
+                <li>Total Siswa : <b><?= $total_siswa ?></b></li>
             </ul>
         </div>
     </div>
@@ -73,8 +75,6 @@
             </div>
         </div>
     </div>
-
-
 
     <!-- Modal Add Siswa -->
     <div class="modal fade" id="modalAddSiswa" tabindex="-1" aria-hidden="true">
@@ -186,8 +186,6 @@
         </div>
     </div>  
     <!-- End Modal -->
-
-
 </div>
 
 

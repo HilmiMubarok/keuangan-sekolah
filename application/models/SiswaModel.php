@@ -19,6 +19,11 @@ class SiswaModel extends CI_Model
         return $this->db->get_where("siswa", $where)->row();
     }
 
+    public function getByJenkel($kelas_id, $jenkel)
+    {
+        return $this->db->get_where("siswa", array('kelas_id' => $kelas_id, 'jenkel' => $jenkel))->num_rows();
+    }
+
     public function save($data)
     {
         return $this->db->insert("siswa", $data);

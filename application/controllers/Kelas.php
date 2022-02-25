@@ -7,6 +7,7 @@ class Kelas extends CI_Controller
         parent::__construct();
         $this->load->model('KelasModel');
         $this->load->model('JurusanModel');
+        $this->load->model('SiswaModel');
     }
 
     public function index()
@@ -30,6 +31,8 @@ class Kelas extends CI_Controller
         $data['kelas'] = $this->KelasModel->get_by(array('id_kelas' => $this->uri->segment(3)));
         $data['total_siswa'] = $this->KelasModel->getSiswaByKelas($this->uri->segment(3))->num_rows();
         $data['siswa'] = $this->KelasModel->getSiswaByKelas($this->uri->segment(3))->result();
+        $data['siswa_laki'] = $this->SiswaModel->getByJenkel($this->uri->segment(3), 'L');
+        $data['siswa_perempuan'] = $this->SiswaModel->getByJenkel($this->uri->segment(3), 'P');
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/navbar', $data);
