@@ -15,7 +15,6 @@
             </button>
 		</div>
 	<?php endif ?>
-
     
     <div class="row">
         <div class="col-6">
@@ -24,19 +23,15 @@
                     <h5 class="card-title">Tambah Kategori Pengeluaran</h5>
                 </div>
                 <div class="card-body">
-                    <div class="row">
-                        <div class="col-6">
-                            <form action="<?= base_url("pengeluaran/simpan") ?>" method="POST">
-                                <div class="form-group">
-                                    <label for="">Nama Kategori Pengeluaran</label>
-                                    <input type="text" name="nama_jenis_pengeluaran" class="form-control">
-                                </div>
-                                <button type="submit" class="btn btn-primary mb-3">
-                                    <i class="fas fa-save"></i> Simpan
-                                </button>
-                            </form>
+                    <form action="<?= base_url("pengeluaran/simpan") ?>" method="POST">
+                        <div class="form-group">
+                            <label for="">Nama Kategori Pengeluaran</label>
+                            <input type="text" placeholder="Masukkan Kategori Pengeluaran" name="nama_jenis_pengeluaran" class="form-control">
                         </div>
-                    </div>
+                        <button type="submit" class="btn btn-primary mb-3">
+                            <i class="fas fa-save"></i> Simpan
+                        </button>
+                    </form>
                 </div>
             </div> <!-- End Card -->
         </div>
@@ -56,7 +51,6 @@
                             </tr>
                         </thead>
                         <tbody>
-
         <?php if (count($pengeluaran) < 1): ?>
                             <tr>
                                 <td colspan="4" class="text-center h3 p-5">Data Kosong</td>
@@ -77,7 +71,7 @@
                                             <i class="fas fa-edit"></i>
                                         </button>
                                     </a>
-                                    <a href="<?= base_url() ?>pengeluaran/hapus/<?= $k->id_jenis_pengeluaran ?>">
+                                    <a href="<?= base_url() ?>pengeluaran/hapus/<?= $k->id_jenis_pengeluaran ?>" onclick="return confirm('Apakah anda ingin menghapus data ini?')">
                                         <button class="btn btn-danger">
                                             <i class="fas fa-trash"></i>
                                         </button>
