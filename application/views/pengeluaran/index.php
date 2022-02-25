@@ -57,7 +57,7 @@
                         </thead>
                         <tbody>
 
-        <?php if (count($pemasukan) < 1): ?>
+        <?php if (count($pengeluaran) < 1): ?>
                             <tr>
                                 <td colspan="4" class="text-center h3 p-5">Data Kosong</td>
                             </tr>
