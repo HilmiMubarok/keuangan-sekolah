@@ -24,27 +24,23 @@
                     <h5 class="card-title">Tambah Kelas</h5>
                 </div>
                 <div class="card-body">
-                    <div class="row">
-                        <div class="col-6">
-                            <form action="<?= base_url("kelas/simpan") ?>" method="POST">
-                                <div class="form-group">
-                                    <label for="">Nama Kelas</label>
-                                    <input type="text" name="nama_kelas" class="form-control">
-                                </div>
-                                <div class="form-group">
-                                    <label for="">Jurusan</label>
-                                    <select name="jurusan_id" class="form-control">
-                                        <?php foreach($jurusan as $j): ?>
-                                            <option value="<?= $j->id_jurusan ?>"><?= $j->nama_jurusan ?></option>
-                                        <?php endforeach?>
-                                    </select>
-                                </div>
-                                <button type="submit" class="btn btn-primary mb-3">
-                                    <i class="fas fa-save"></i> Simpan
-                                </button>
-                            </form>
+                    <form action="<?= base_url("kelas/simpan") ?>" method="POST">
+                        <div class="form-group">
+                            <label for="">Nama Kelas</label>
+                            <input type="text" name="nama_kelas" placeholder="Masukkan Nama Kelas" class="form-control">
                         </div>
-                    </div>
+                        <div class="form-group">
+                            <label for="">Jurusan</label>
+                            <select name="jurusan_id" class="form-control">
+                                <?php foreach($jurusan as $j): ?>
+                                    <option value="<?= $j->id_jurusan ?>"><?= $j->nama_jurusan ?></option>
+                                <?php endforeach?>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary mb-3">
+                            <i class="fas fa-save"></i> Simpan
+                        </button>
+                    </form>
                 </div>
             </div> <!-- End Card -->
         </div>
@@ -55,7 +51,7 @@
                     <h5 class="card-title">Daftar Kelas</h5>
                 </div>
                 <div class="card-body">
-                    <table class="table table-hover table-stripped table-bordered">
+                    <table class="table table-hover table-stripped table-bordered" id="dataTable">
                         <thead>
                             <tr>
                                 <th>No</th>
