@@ -1,5 +1,4 @@
 <?php
-
 class Jurusan extends CI_Controller {
 
     public function __construct()
@@ -14,6 +13,7 @@ class Jurusan extends CI_Controller {
         $data['jabatan']   = $this->session->userdata('role');
         $data['nama_user'] = $this->session->userdata('name');
         $data['jurusan'] = $this->DashboardModel->get('jurusan')->result();
+
         $this->load->view('templates/header', $data);
         $this->load->view('templates/navbar', $data);
         $this->load->view('jurusan/index', $data);
@@ -51,6 +51,7 @@ class Jurusan extends CI_Controller {
         $data['nama_user'] = $this->session->userdata('name');
 		$get_jurusan      = array('id_jurusan' => $this->uri->segment(3));
 		$data['jurusan']  = $this->DashboardModel->get_by($get_jurusan, 'jurusan')->row();
+
 		$this->load->view('templates/header', $data);
 		$this->load->view('templates/navbar', $data);
 		$this->load->view('jurusan/edit.php', $data);
@@ -84,7 +85,6 @@ class Jurusan extends CI_Controller {
 
     public function hapus()
 	{
-		
 		$where = array(
 			'id_jurusan' => $this->uri->segment(3)
 		);
@@ -107,7 +107,6 @@ class Jurusan extends CI_Controller {
 			redirect("jurusan");
 		}
 	}
-
 }
 
 ?>
