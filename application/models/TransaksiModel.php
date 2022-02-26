@@ -45,7 +45,6 @@ class TransaksiModel extends CI_Model
             return $this->db->insert("pengeluaran", $data);
         } else {
             return $this->db->insert("pemasukan", $data);
-
         }
     }
 

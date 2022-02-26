@@ -20,20 +20,6 @@
 					<label for="">Nama Kategori Pemasukan</label>
 					<input type="text" name="nama_jenis_pemasukan" class="form-control" value="<?= $pemasukan->nama_jenis_pemasukan ?>">
 				</div>
-				<div class="form-group">
-					<label>Periode</label>
-					<select name="periode_pemasukan" class="form-control">
-						<option value="11" <?= ($pemasukan->periode_pemasukan == "11") ? "selected" : null ?>>Satu Kali</option>
-						<option value="1" <?= ($pemasukan->periode_pemasukan == "1") ? "selected" : null ?>>Setiap 1 Bulan</option>
-						<option value="6" <?= ($pemasukan->periode_pemasukan == "6") ? "selected" : null ?>>Setiap 6 Bulan</option>
-						<option value="12" <?= ($pemasukan->periode_pemasukan == "12") ? "selected" : null ?>>Setiap 1 Tahun</option>
-					</select>
-				</div>
-				<div class="form-group">
-					<label>Nominal</label>
-					<input type="number" name="nominal" class="form-control" value="<?= $pemasukan->nominal ?>">
-				</div>
-				
 				<button type="submit" class="btn btn-primary">
 					<i class="fas fa-save"></i> Simpan pemasukan
 				</button>
