@@ -81,7 +81,7 @@ https://cdn.datatables.net/responsive/2.2.9/css/responsive.bootstrap4.min.css --
 
 			<!-- Menu Kategori -->
 			<li class="nav-item">
-				<a class="nav-link" href="<?= base_url("pengeluaran") ?>">
+				<a class="nav-link" href="<?= base_url("transaksi/pengeluaran") ?>">
 					<i class="fas fa-fw fa-money-check-alt"></i>
 					<span class="font-weight-bold">Pengeluaran</span>
 				</a>
@@ -89,7 +89,7 @@ https://cdn.datatables.net/responsive/2.2.9/css/responsive.bootstrap4.min.css --
 
 			<!-- Menu User -->
 			<li class="nav-item">
-				<a class="nav-link" href="<?= base_url("pemasukan") ?>">
+				<a class="nav-link" href="<?= base_url("transaksi/pemasukan") ?>">
 					<i class="fas fa-fw fa-wallet"></i>
 					<span class="font-weight-bold">Pemasukan</span>
 				</a>
