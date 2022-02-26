@@ -4,10 +4,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class TransaksiModel extends CI_Model
 {
 
-    public function get()
+    public function get($type)
     {
-        $this->db->join('jurusan', 'jurusan.id_jurusan = kelas.jurusan_id');
-        return $this->db->get('kelas')->result();
+        if($type == "pengeluaran") {
+            $this->db->join('jenis_pengeluaran', 'jenis_pengeluaran.id_jenis_pengeluaran = pengeluaran.jenis_pengeluaran_id');
+            $this->db->join('users', 'users.id_user = pengeluaran.user_id');
+            return $this->db->get('pengeluaran')->result();
+        } else {
+
+        }
     }
 
     public function getSiswaByKelas($kelas_id)
@@ -23,14 +28,25 @@ class TransaksiModel extends CI_Model
         return $this->db->get('kelas')->num_rows();
     }
 
-    public function get_by($where)
+    public function get_by($where, $type)
     {
-        return $this->db->get_where("kelas", $where)->row();
+        if($type == "pengeluaran"){
+            $this->db->join('jenis_pengeluaran', 'jenis_pengeluaran.id_jenis_pengeluaran = pengeluaran.jenis_pengeluaran_id');
+            $this->db->join('users', 'users.id_user = pengeluaran.user_id');
+            return $this->db->get_where("pengeluaran", $where)->row();
+        } else {
+
+        }
     }
 
-    public function save($data)
+    public function save($data, $type)
     {
-        return $this->db->insert("kelas", $data);
+        if($type == "pengeluaran"){
+            return $this->db->insert("pengeluaran", $data);
+        } else {
+            return $this->db->insert("pemasukan", $data);
+
+        }
     }
 
     public function update($id, $data)
