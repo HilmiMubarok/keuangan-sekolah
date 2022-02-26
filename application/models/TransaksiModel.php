@@ -15,6 +15,17 @@ class TransaksiModel extends CI_Model
         }
     }
 
+    public function getTotalTransaksi($type)
+    {
+        if($type == "pengeluaran"){
+            $this->db->select_sum('nominal');
+            return $this->db->get('pengeluaran')->row();
+        } else {
+            $this->db->select_sum('nominal');
+            return $this->db->get('pemasukan')->row();
+        }
+    }
+
     public function getSiswaByKelas($kelas_id)
     {
         $this->db->join('kelas', 'kelas.id_kelas = siswa.kelas_id');

@@ -19,7 +19,7 @@
             <div class="col mr-2">
               Jumlah Pengeluaran
               <div class="h4 mb-0 font-weight-bold text-gray-800">
-                0
+                <?= "Rp. ".number_format($jumlah_pengeluaran->nominal) ?>
               </div>
             </div>
             <div class="col-auto">
