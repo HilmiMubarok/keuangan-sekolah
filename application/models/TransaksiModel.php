@@ -50,6 +50,11 @@ class TransaksiModel extends CI_Model
         }
     }
 
+    public function getBySiswa($id)
+    {
+        return [];
+    }
+
     public function save($data, $type)
     {
         if($type == "pengeluaran"){
