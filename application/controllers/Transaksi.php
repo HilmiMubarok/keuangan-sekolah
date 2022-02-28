@@ -20,6 +20,7 @@ class Transaksi extends CI_Controller {
         $data['nama_user'] = $this->session->userdata('name');
         $data['pengeluaran'] = $this->PengeluaranModel->get();
         $data['data_pengeluaran'] = $this->TransaksiModel->get('pengeluaran');
+        
         $this->load->view('templates/header', $data);
         $this->load->view('templates/navbar', $data);
         $this->load->view('transaksi/pengeluaran/index', $data);

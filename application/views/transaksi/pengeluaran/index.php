@@ -20,7 +20,7 @@
         <div class="col">
             <div class="card shadow mb-3">
                 <div class="card-header text-white bg-primary">
-                    <h5 class="card-title">Daftar Kategori Pengeluaran</h5>
+                    <h5 class="card-title">Daftar Transaksi Pengeluaran</h5>
                 </div>
                 <div class="card-body">
                     <button class="btn btn-primary mb-3" data-toggle="modal" data-target="#modalAddPengeluaran">

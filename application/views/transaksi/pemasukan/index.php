@@ -20,11 +20,11 @@
         <div class="col">
             <div class="card shadow mb-3">
                 <div class="card-header text-white bg-primary">
-                    <h5 class="card-title">Daftar Kategori Pengeluaran</h5>
+                    <h5 class="card-title">Daftar Transaksi Pemasukan</h5>
                 </div>
                 <div class="card-body">
-                    <button class="btn btn-primary mb-3" data-toggle="modal" data-target="#modalAddPengeluaran">
-                        <i class="fas fa-plus"></i> Tambah Pengeluaran
+                    <button class="btn btn-primary mb-3" data-toggle="modal" data-target="#modalAddPemasukan">
+                        <i class="fas fa-plus"></i> Tambah Pemasukan
                     </button>
                     <table class="table table-bordered table-hover table-striped" id="dataTable">
                         <thead>
@@ -38,21 +38,21 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <?php $no = 1; foreach($data_pengeluaran as $d): ?>
+                            <?php $no = 1; foreach($data_pemasukan as $d): ?>
                                 <tr>
                                     <td><?= $no++ ?></td>
                                     <td><?= formatHariTanggal($d->tanggal) ?></td>
-                                    <td><?= $d->nama_jenis_pengeluaran ?></td>
+                                    <td><?= $d->nama_jenis_pemasukan ?></td>
                                     <td><?= "Rp. ". number_format($d->nominal) ?></td>
                                     <td><?= $d->user_name ?></td>
                                     <td>
-                                        <a href="<?= base_url() ?>transaksi/detail/pengeluaran/<?= $d->id_pengeluaran ?>" class="btn btn-success">
+                                        <a href="<?= base_url() ?>transaksi/detail/pemasukan/<?= $d->id_pemasukan ?>" class="btn btn-success">
                                             <i class="fas fa-eye"></i>
                                         </a>
-                                        <a href="<?= base_url() ?>transaksi/edit/pengeluaran/<?= $d->id_pengeluaran ?>" class="btn btn-warning">
+                                        <a href="<?= base_url() ?>transaksi/edit/pemasukan/<?= $d->id_pemasukan ?>" class="btn btn-warning">
                                             <i class="fas fa-edit"></i>
                                         </a>
-                                        <a href="<?= base_url() ?>transaksi/hapus/pengeluaran/<?= $d->id_pengeluaran ?>" class="btn btn-danger">
+                                        <a href="<?= base_url() ?>transaksi/hapus/pemasukan/<?= $d->id_pemasukan ?>" class="btn btn-danger">
                                             <i class="fas fa-trash"></i>
                                         </a>
                                     </td>
@@ -67,25 +67,25 @@
 
     <!-- Modal Add -->
 
-    <div class="modal fade" id="modalAddPengeluaran" tabindex="-1" aria-hidden="true">
+    <div class="modal fade" id="modalAddPemasukan" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header bg-danger text-white">
                     <h5 class="modal-title">
-                        Tambah Pengeluaran
+                        Tambah Pemasukan
                     </h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form action="<?= base_url("transaksi/simpan/pengeluaran") ?>" method="POST">
+                    <form action="<?= base_url("transaksi/simpan/pemasukan") ?>" method="POST">
                         <input type="hidden" name="user_id" value="<?= $this->session->userdata('id') ?>">
                         <div class="form-group">
-                            <label for="">Nama Kategori Pengeluaran</label>
-                            <select name="jenis_pengeluaran_id" class="form-control">
-                                <?php foreach($pengeluaran as $p) :?>
-                                    <option value="<?= $p->id_jenis_pengeluaran ?>"><?= $p->nama_jenis_pengeluaran ?></option>
+                            <label for="">Nama Kategori Pemasukan</label>
+                            <select name="jenis_pemasukan_id" class="form-control">
+                                <?php foreach($pemasukan as $p) :?>
+                                    <option value="<?= $p->id_jenis_pemasukan ?>"><?= $p->nama_jenis_pemasukan ?></option>
                                 <?php endforeach ?>
                             </select>
                         </div>
