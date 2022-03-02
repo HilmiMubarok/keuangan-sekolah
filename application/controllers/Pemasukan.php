@@ -8,6 +8,7 @@ class Pemasukan extends CI_Controller {
     {
         parent::__construct();
         $this->load->model('PemasukanModel');
+        $this->load->model('SiswaModel');
     }
     
     public function index()
@@ -16,6 +17,7 @@ class Pemasukan extends CI_Controller {
         $data['jabatan']   = $this->session->userdata('role');
         $data['nama_user'] = $this->session->userdata('name');
         $data['pemasukan'] = $this->PemasukanModel->get();
+
         $this->load->view('templates/header', $data);
         $this->load->view('templates/navbar', $data);
         $this->load->view('pemasukan/index', $data);

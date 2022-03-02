@@ -38,6 +38,14 @@
   <script src="<?= base_url() ?>assets/js/dataTables.bootstrap4.min.js"></script>
   <script src="<?= base_url() ?>assets/js/dataTables.responsive.min.js"></script>
   <script src="<?= base_url() ?>assets/js/responsive.bootstrap4.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+  <script>
+    $(document).ready(function() {
+      $.fn.select2.defaults.set( "theme", "bootstrap" );
+      $('#select2').select2();
+    });
+  </script>
 
   <script>
     $(document).ready(function() {
@@ -58,8 +66,10 @@
   <script>
     $(document).ready(function () {
       let bp   = []
-      let base = "<?= base_url('api/') ?>"
+      let base = "<?= base_url('api/getSiswa') ?>"
       let besar_penyusutan
+
+
       $('#at_penyusutan').change(function () {
 
         let id = $(this).val()

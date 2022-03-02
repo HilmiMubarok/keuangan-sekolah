@@ -9,6 +9,7 @@ class Transaksi extends CI_Controller {
         $this->load->model('TransaksiModel');
         $this->load->model('PengeluaranModel');
         $this->load->model('PemasukanModel');
+        $this->load->model('SiswaModel');
 
         $this->load->helper('tanggal');
     }
@@ -34,6 +35,8 @@ class Transaksi extends CI_Controller {
         $data['nama_user'] = $this->session->userdata('name');
         $data['pemasukan'] = $this->PemasukanModel->get();
         $data['data_pemasukan'] = $this->TransaksiModel->get('pemasukan');
+        $data['siswa'] = $this->SiswaModel->getNamaSiswa();
+
         $this->load->view('templates/header', $data);
         $this->load->view('templates/navbar', $data);
         $this->load->view('transaksi/pemasukan/index', $data);

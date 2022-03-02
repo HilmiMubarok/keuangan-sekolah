@@ -7,6 +7,13 @@ class Api extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->model('DashboardModel');
+		$this->load->model('SiswaModel');
+	}
+
+	public function getSiswa()
+	{
+		$data = $this->SiswaModel->getApi();
+		echo json_encode($data);
 	}
 
 	public function get($url)

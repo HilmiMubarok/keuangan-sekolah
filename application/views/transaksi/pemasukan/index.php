@@ -20,7 +20,7 @@
         <div class="col">
             <div class="card shadow mb-3">
                 <div class="card-header text-white bg-primary">
-                    <h5 class="card-title">Daftar Transaksi Pemasukan</h5>
+                    <h5 class="card-title">Daftar Transaksi Pemasukan 🤣</h5>
                 </div>
                 <div class="card-body">
                     <button class="btn btn-primary mb-3" data-toggle="modal" data-target="#modalAddPemasukan">
@@ -68,7 +68,7 @@
     <!-- Modal Add -->
 
     <div class="modal fade" id="modalAddPemasukan" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header bg-danger text-white">
                     <h5 class="modal-title">
@@ -81,6 +81,14 @@
                 <div class="modal-body">
                     <form action="<?= base_url("transaksi/simpan/pemasukan") ?>" method="POST">
                         <input type="hidden" name="user_id" value="<?= $this->session->userdata('id') ?>">
+                        <div class="form-group">
+                            <label>Nama Siswa</label>
+                            <select name="siswa_id" id="select2">
+                                <?php foreach($siswa as $s): ?>
+                                    <option value="<?= $s->id_siswa ?>"><?= $s->nama ?></option>
+                                <?php endforeach ?>
+                            </select>
+                        </div>
                         <div class="form-group">
                             <label for="">Nama Kategori Pemasukan</label>
                             <select name="jenis_pemasukan_id" class="form-control">

@@ -11,6 +11,23 @@ class SiswaModel extends CI_Model
         return $this->db->get('siswa')->result();
     }
 
+    public function getNamaSiswa()
+    {
+        $this->db->select('id_siswa, nama');
+        $this->db->from('siswa');
+        $query = $this->db->get();
+        return $query->result();
+    }
+
+    public function getApi()
+    {
+        $query = $this->input->get('query');
+        $this->db->join('kelas', 'kelas.id_kelas = siswa.kelas_id');
+        $this->db->join('jurusan', 'jurusan.id_jurusan = kelas.jurusan_id');
+        $this->db->like('siswa.nama', $query);
+        return $this->db->get('siswa')->result_array();
+    }
+
     public function getTotal()
     {
         return $this->db->get('siswa')->num_rows();
