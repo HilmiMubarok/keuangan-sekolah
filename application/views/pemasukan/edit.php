@@ -20,6 +20,10 @@
 					<label for="">Nama Kategori Pemasukan</label>
 					<input type="text" name="nama_jenis_pemasukan" class="form-control" value="<?= $pemasukan->nama_jenis_pemasukan ?>">
 				</div>
+				<div class="form-group">
+					<label for="">Sumber Pemasukan</label>
+					<input type="text" name="sumber_pemasukan" class="form-control" value="<?= $pemasukan->sumber_pemasukan ?>">
+				</div>
 				<button type="submit" class="btn btn-primary">
 					<i class="fas fa-save"></i> Simpan pemasukan
 				</button>

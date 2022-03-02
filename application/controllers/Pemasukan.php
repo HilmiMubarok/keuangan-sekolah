@@ -27,8 +27,10 @@ class Pemasukan extends CI_Controller {
     public function simpan()
     {
         $nama = $this->input->post('nama_jenis_pemasukan');
+        $sumber = $this->input->post('sumber_pemasukan');
         $data = array(
-            'nama_jenis_pemasukan' => $nama
+            'nama_jenis_pemasukan' => $nama,
+            'sumber_pemasukan' => $sumber
         );
         $save = $this->PemasukanModel->save($data, 'jenis_pemasukan');
         if ($save) {
@@ -66,8 +68,10 @@ class Pemasukan extends CI_Controller {
     {
         $id = array('id_jenis_pemasukan' => $this->input->post('id_jenis_pemasukan'));
         $nama_jenis_pemasukan = $this->input->post('nama_jenis_pemasukan');
+        $sumber = $this->input->post('sumber_pemasukan');
         $data = array(
-            'nama_jenis_pemasukan' => $nama_jenis_pemasukan
+            'nama_jenis_pemasukan' => $nama_jenis_pemasukan,
+            'sumber_pemasukan' => $sumber
             
         );
         $update = $this->PemasukanModel->update($id, $data, 'jenis_pemasukan');

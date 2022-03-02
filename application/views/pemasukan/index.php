@@ -15,7 +15,6 @@
             </button>
 		</div>
 	<?php endif ?>
-
     
     <div class="row">
         <div class="col-6">
@@ -28,6 +27,10 @@
                         <div class="form-group">
                             <label for="">Nama Kategori Pemasukan</label>
                             <input type="text" name="nama_jenis_pemasukan" placeholder="Masukkan Kategori Pemasukan" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="">Sumber Pemasukan</label>
+                            <input type="text" name="sumber_pemasukan" placeholder="Masukkan Sumber Pemasukan" class="form-control">
                         </div>
                         <button type="submit" class="btn btn-primary mb-3">
                             <i class="fas fa-save"></i> Simpan
@@ -48,6 +51,7 @@
                             <tr>
                                 <th>No</th>
                                 <th>Nama Kategori Pemasukan</th>
+                                <th>Sumber Pemasukan</th>
                                 <th>Opsi</th>
                             </tr>
                         </thead>
@@ -62,6 +66,7 @@
                             <tr>
                                 <td><?= $no ?></td>
                                 <td><?= $k->nama_jenis_pemasukan ?></td>
+                                <td><?= $k->sumber_pemasukan ?></td>
                                 <td>
                                     <!-- <a href="<?= base_url() ?>pemasukan/detail/<?= $k->id_jenis_pemasukan ?>">
                                         <button class="btn btn-success text-white">
