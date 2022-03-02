@@ -98,8 +98,6 @@ https://cdn.datatables.net/responsive/2.2.9/css/responsive.bootstrap4.min.css --
 				</a>
 			</li>
 
-
-
 			<!-- Menu User -->
 			<li class="nav-item">
 				<a class="nav-link collapsed" href="#!" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
@@ -122,7 +120,17 @@ https://cdn.datatables.net/responsive/2.2.9/css/responsive.bootstrap4.min.css --
 			</li>
 
 			<!-- Divider -->
-			<hr class="sidebar-divider my-0">
+			<hr class="sidebar-divider my-3">
+
+			<li class="nav-item">
+				<a class="nav-link" href="<?= base_url("setting") ?>">
+					<i class="fas fa-cog"></i>
+					<span class="font-weight-bold">Setting</span>
+				</a>
+			</li>
+
+			<hr class="sidebar-divider my-3">
+
 
 			<!-- Sidebar Toggler (Sidebar) -->
 			<div class="text-center d-none d-md-inline mt-3">

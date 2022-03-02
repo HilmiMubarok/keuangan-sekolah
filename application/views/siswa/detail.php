@@ -14,6 +14,9 @@
             <h5 class="card-title">Detail Siswa</h5>
         </div>
         <div class="card-body">
+            <button data-toggle="modal" data-target="#modalAddBayarSiswa" class="btn btn-primary text-white mb-3">
+                <i class="fas fa-plus"></i> Tambah Pembayaran Siswa
+            </button>
             <table class="table table-bordered table-striped table-hover">
                 <tr>
                     <th>Nama</th>
@@ -96,6 +99,43 @@
                     </tr>
                 <?php endforeach; ?>
             </table>
+        </div>
+    </div>
+
+    <!-- Modal Add -->
+    
+    <div class="modal fade" id="modalAddBayarSiswa" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-danger text-white">
+                    <h5 class="modal-title">
+                        Tambah Pembayaran Siswa
+                    </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="<?= base_url("transaksi/simpan/pemasukan") ?>" method="POST">
+                        <input type="hidden" name="user_id" value="<?= $this->session->userdata('id') ?>">
+                        <div class="form-group">
+                            <label>Tanggal</label>
+                            <input type="date" name="tanggal" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>Nominal</label>
+                            <input type="number" class="form-control" name="nominal" placeholder="Masukkan Nominal">
+                        </div>
+                        <div class="form-group">
+                            <label>Keterangan</label>
+                            <textarea name="keterangan" class="form-control" cols="30" rows="10"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary mb-3">
+                            <i class="fas fa-save"></i> Simpan
+                        </button>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
 
