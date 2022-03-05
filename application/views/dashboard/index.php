@@ -13,21 +13,23 @@
 	<div class="row mt-5">
 
     <div class="col-xl-4 col-md-4 mb-4">
-      <div class="card border-left-danger shadow h-100 py-2">
-        <div class="card-body">
-          <div class="row no-gutters align-items-center">
-            <div class="col mr-2">
-              Jumlah Pengeluaran
-              <div class="h4 mb-0 font-weight-bold text-gray-800">
-                <?= "Rp. ".number_format($jumlah_pengeluaran->nominal) ?>
-              </div>
+      <a href="<?= base_url('dashboard/pengeluaran') ?>" class="text-secondary">
+        <div class="card border-left-danger shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                    Jumlah Pengeluaran
+                        <div class="h4 mb-0 font-weight-bold text-gray-800">
+                           <?= "Rp. ".number_format($jumlah_pengeluaran->nominal) ?>
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                    </div>
+                </div>
             </div>
-            <div class="col-auto">
-              <i class="fas fa-calendar fa-2x text-gray-300"></i>
-            </div>
-          </div>
         </div>
-      </div>
+      </a>
     </div>
 
     <div class="col-xl-4 col-md-4 mb-4">

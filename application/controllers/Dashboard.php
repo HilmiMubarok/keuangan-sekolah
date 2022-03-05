@@ -30,8 +30,13 @@ class Dashboard extends CI_Controller {
 		
 		$this->load->view('templates/header', $data);
 		$this->load->view('templates/navbar', $data);
-		$this->load->view('dashboard.php', $data);
+		$this->load->view('dashboard/index', $data);
 		$this->load->view('templates/footer', $data);
+		
+	}
+
+	public function pengeluaran()
+	{
 		
 	}
 
