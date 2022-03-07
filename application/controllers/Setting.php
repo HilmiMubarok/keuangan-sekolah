@@ -24,4 +24,27 @@ class Setting extends CI_Controller {
         $this->load->view('templates/footer', $data);
     }
 
+    public function changePassword()
+    {
+        $this->load->model('AuthModel');
+
+        $data_user = $this->AuthModel->getUserById($this->session->userdata('id'));
+        
+        $pass_lama = $this->input->post('pass_lama');
+
+        $pass_baru = $this->input->post('pass_baru');
+        $confirm_baru = $this->input->post('pass_baru_confirm');
+        if(password_verify($pass_lama, $data_user->user_pass)){
+
+        } else {
+            $data = array(
+                'pesan' => 'Password Lama Salah',
+                'icon'  => 'danger'
+            );
+            $this->session->set_flashdata($data);
+            redirect("kelas");
+        }
+
+    }
+
 }

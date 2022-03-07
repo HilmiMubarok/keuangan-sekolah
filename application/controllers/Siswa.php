@@ -8,6 +8,7 @@ class Siswa extends CI_Controller
         $this->load->model('SiswaModel');
         $this->load->model('KelasModel');
         $this->load->model('TransaksiModel');
+        $this->load->model('PemasukanModel');
 
         // load helper
         $this->load->helper('tanggal_helper');
@@ -35,6 +36,7 @@ class Siswa extends CI_Controller
         $data['siswa'] = $this->SiswaModel->get_by(['id_siswa' => $id]);
         $data['kelas'] = $this->KelasModel->get();
         $data['pembayaran'] = $this->TransaksiModel->getBySiswa($id);
+        $data['pemasukan'] = $this->PemasukanModel->getBy(['sumber_pemasukan' => 'Siswa']);
         
         $this->load->view('templates/header', $data);
         $this->load->view('templates/navbar', $data);

@@ -119,8 +119,16 @@
                     <form action="<?= base_url("transaksi/simpan/pemasukan") ?>" method="POST">
                         <input type="hidden" name="user_id" value="<?= $this->session->userdata('id') ?>">
                         <div class="form-group">
+                            <label for="">Nama Kategori Pemasukan</label>
+                            <select name="jenis_pemasukan_id" class="form-control">
+                                <?php foreach($pemasukan as $p) :?>
+                                    <option value="<?= $p->id_jenis_pemasukan ?>"><?= $p->nama_jenis_pemasukan ?></option>
+                                <?php endforeach ?>
+                            </select>
+                        </div>
+                        <div class="form-group">
                             <label>Tanggal</label>
-                            <input type="date" name="tanggal" class="form-control">
+                            <input type="text" id="datepicker" name="tanggal" class="form-control">
                         </div>
                         <div class="form-group">
                             <label>Nominal</label>

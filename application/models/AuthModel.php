@@ -8,6 +8,11 @@ class AuthModel extends CI_Model {
 		return $this->db->where($value)->get($table);
 	}
 
+	public function getUserById($id)
+	{
+		return $this->db->where('id_user', $id)->get('users')->row();
+	}
+
 }
 
 /* End of file AuthModel.php */

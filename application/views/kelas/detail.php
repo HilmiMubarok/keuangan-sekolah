@@ -58,7 +58,7 @@
                                 <td><?= $s->alamat ?></td>
                                 <td><?= $s->telp ?></td>
                                 <td>
-                                    <a href="" class="btn btn-success">
+                                    <a href="<?= base_url() ?>siswa/detail/<?= $s->id_siswa ?>" class="btn btn-success">
                                         <i class="fas fa-eye"></i>
                                     </a>
                                     <a href="" class="btn btn-warning">

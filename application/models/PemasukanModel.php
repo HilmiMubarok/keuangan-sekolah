@@ -18,6 +18,11 @@ class PemasukanModel extends CI_Model
         return $this->db->get_where("jenis_pemasukan", $where)->row();
     }
 
+    public function getBy($where)
+    {
+        return $this->db->get_where("jenis_pemasukan", $where)->result();
+    }
+
     public function save($data)
     {
         return $this->db->insert("jenis_pemasukan", $data);
