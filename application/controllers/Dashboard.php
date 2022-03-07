@@ -27,6 +27,7 @@ class Dashboard extends CI_Controller {
 		$data['jumlah_jurusan'] = $this->JurusanModel->getTotal();
 		$data['jumlah_siswa'] = $this->SiswaModel->getTotal();
 		$data['jumlah_pengeluaran'] = $this->TransaksiModel->getTotalTransaksi("pengeluaran");
+		$data['jumlah_pemasukan'] = $this->TransaksiModel->getTotalTransaksi("pemasukan");
 		
 		$this->load->view('templates/header', $data);
 		$this->load->view('templates/navbar', $data);

@@ -8,6 +8,15 @@
         </ol>
     </nav>
 
+    <?php if ($this->session->flashdata()): ?>
+		<div class="alert alert-dismissible fade show alert-<?= $this->session->flashdata('icon') ?> bg-<?= $this->session->flashdata('icon') ?> text-white">
+			<?= $this->session->flashdata('pesan') ?>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true" class="text-white">&times;</span>
+            </button>
+		</div>
+	<?php endif ?>
+
     <!-- card informasi kelas -->
     <div class="card mb-3">
         <div class="card-header bg-primary text-white">
@@ -77,27 +86,32 @@
         </div>
         <div class="card-body">
             <table class="table table-bordered table-striped table-hover" id="dataTable">
-                <tr>
-                    <th>No.</th>
-                    <th>Tanggal</th>
-                    <th>Nominal</th>
-                    <th>Keterangan</th>
-                    <th>Aksi</th>
-                </tr>
-                <?php $no = 1; ?>
-                <?php foreach ($pembayaran as $p) : ?>
+                <thead>
                     <tr>
-                        <td><?= $no++ ?></td>
-                        <td><?= formatHariTanggal($p->tanggal) ?></td>
-                        <td><?= "Rp. ". number_format($p->nominal) ?></td>
-                        <td><?= $p->keterangan ?></td>
-                        <td>
-                            <a href="" class="btn btn-success">
-                                <i class="fas fa-eye"></i>
-                            </a>
-                        </td>
+                        <th>No.</th>
+                        <th>Tanggal</th>
+                        <th>Nominal</th>
+                        <th>Keterangan</th>
+                        <th>Aksi</th>
                     </tr>
-                <?php endforeach; ?>
+                </thead>
+                <tbody>
+
+                    <?php $no = 1; ?>
+                    <?php foreach ($pembayaran as $p) : ?>
+                        <tr>
+                            <td><?= $no++ ?></td>
+                            <td><?= formatHariTanggal($p->tanggal) ?></td>
+                            <td><?= "Rp. ". number_format($p->nominal) ?></td>
+                            <td><?= $p->keterangan ?></td>
+                            <td>
+                                <a href="" class="btn btn-success">
+                                    <i class="fas fa-eye"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
+                </tbody>
             </table>
         </div>
     </div>
@@ -118,6 +132,7 @@
                 <div class="modal-body">
                     <form action="<?= base_url("transaksi/simpan/pemasukan") ?>" method="POST">
                         <input type="hidden" name="user_id" value="<?= $this->session->userdata('id') ?>">
+                        <input type="hidden" name="siswa_id" value="<?= $siswa->id_siswa ?>">
                         <div class="form-group">
                             <label for="">Nama Kategori Pemasukan</label>
                             <select name="jenis_pemasukan_id" class="form-control">

@@ -29,16 +29,13 @@ class TransaksiModel extends CI_Model
 
     public function getTotalTransaksi($type)
     {
-        // if($type == "pengeluaran"){
-        //     $this->db->select_sum('nominal');
-        //     return $this->db->get('pengeluaran')->row();
-        // } else {
-        //     $this->db->select_sum('nominal');
-        //     return $this->db->get('pemasukan')->row();
-        // }
-
-        $this->db->select_sum('nominal');
-        return $this->db->get($type)->row();
+        if($type == "pengeluaran"){
+            $this->db->select_sum('nominal');
+            return $this->db->get('pengeluaran')->row();
+        } else {
+            $this->db->select_sum('nominal');
+            return $this->db->get('pemasukan')->row();
+        }
     }
 
     public function getSiswaByKelas($kelas_id)
@@ -67,7 +64,8 @@ class TransaksiModel extends CI_Model
 
     public function getBySiswa($id)
     {
-        return [];
+        $this->db->where('siswa_id', $id);
+        return $this->db->get('pemasukan')->result();
     }
 
     public function save($data, $type)

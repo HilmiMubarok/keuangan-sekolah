@@ -76,7 +76,37 @@ class Transaksi extends CI_Controller {
             }
 
         } else {
-
+            $user_id = $this->session->userdata('id');
+            $jenis_pemasukan_id = $this->input->post('jenis_pemasukan_id');
+            $nominal = $this->input->post('nominal');
+            $tanggal = $this->input->post('tanggal');
+            $keterangan = $this->input->post('keterangan');
+            $siswa_id = $this->input->post('siswa_id');
+            $data = [
+                'user_id' => $user_id,
+                'jenis_pemasukan_id' => $jenis_pemasukan_id,
+                'siswa_id' => $siswa_id,
+                'tanggal' => $tanggal,
+                'nominal' => $nominal,
+                'keterangan' => $keterangan
+            ];
+            
+            $save = $this->TransaksiModel->save($data, 'pemasukan');
+            if ($save) {
+                $data = array(
+                    'pesan' => 'Data Berhasil Disimpan',
+                    'icon'  => 'success'
+                );
+                $this->session->set_flashdata($data);
+                redirect("siswa/detail/". $siswa_id);
+            } else {
+                $data = array(
+                    'pesan' => 'Data Gagal Disimpan',
+                    'icon'  => 'danger'
+                );
+                $this->session->set_flashdata($data);
+                redirect("siswa/detail/". $siswa_id);
+            }
         }
     }
 
