@@ -38,14 +38,10 @@
   <script src="<?= base_url() ?>assets/js/dataTables.bootstrap4.min.js"></script>
   <script src="<?= base_url() ?>assets/js/dataTables.responsive.min.js"></script>
   <script src="<?= base_url() ?>assets/js/responsive.bootstrap4.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
   <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
 
   <script>
     $(document).ready(function() {
-      $.fn.select2.defaults.set( "theme", "bootstrap" );
-
-      $('#select2').select2();
 
       $('#dataTable').DataTable();
 

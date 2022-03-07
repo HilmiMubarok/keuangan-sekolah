@@ -33,9 +33,10 @@ class Transaksi extends CI_Controller {
         $data['title'] = 'Pemasukan';
         $data['jabatan']   = $this->session->userdata('role');
         $data['nama_user'] = $this->session->userdata('name');
-        $data['pemasukan'] = $this->PemasukanModel->getBy(['sumber_pemasukan != ' => 'siswa']);
+        $data['pemasukan'] = $this->PemasukanModel->get(['sumber_pemasukan != ' => 'siswa']);
         $data['data_pemasukan'] = $this->TransaksiModel->get('pemasukan');
         $data['siswa'] = $this->SiswaModel->getNamaSiswa();
+
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/navbar', $data);

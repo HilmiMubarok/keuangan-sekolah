@@ -32,6 +32,7 @@
                                 <th>No</th>
                                 <th>Tanggal</th>
                                 <th>Kategori</th>
+                                <th>Sumber Pemasukan</th>
                                 <th>Nominal</th>
                                 <th>User</th>
                                 <th>Aksi</th>
@@ -43,6 +44,7 @@
                                     <td><?= $no++ ?></td>
                                     <td><?= formatHariTanggal($d->tanggal) ?></td>
                                     <td><?= $d->nama_jenis_pemasukan ?></td>
+                                    <td><?= $d->sumber_pemasukan ?></td>
                                     <td><?= "Rp. ". number_format($d->nominal) ?></td>
                                     <td><?= $d->user_name ?></td>
                                     <td>

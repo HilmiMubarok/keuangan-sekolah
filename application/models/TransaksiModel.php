@@ -13,7 +13,7 @@ class TransaksiModel extends CI_Model
         } else {
             $this->db->join('jenis_pemasukan', 'jenis_pemasukan.id_jenis_pemasukan = pemasukan.jenis_pemasukan_id');
             $this->db->join('users', 'users.id_user = pemasukan.user_id');
-            $this->db->where(['pemasukan.siswa_id =' => '0']);
+            // $this->db->where(['pemasukan.siswa_id =' => '0']);
             return $this->db->get('pemasukan')->result();
         }
         // $table = "jenis_$type"; //jenis_pemasukan

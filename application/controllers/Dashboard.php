@@ -41,6 +41,11 @@ class Dashboard extends CI_Controller {
 		
 	}
 
+	public function pemasukan()
+	{
+		
+	}
+
 }
 
 /* End of file Dashboard.php */
