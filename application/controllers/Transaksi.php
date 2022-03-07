@@ -90,7 +90,7 @@ class Transaksi extends CI_Controller {
                 'nominal' => $nominal,
                 'keterangan' => $keterangan
             ];
-            
+
             $save = $this->TransaksiModel->save($data, 'pemasukan');
             if ($save) {
                 $data = array(
@@ -98,14 +98,14 @@ class Transaksi extends CI_Controller {
                     'icon'  => 'success'
                 );
                 $this->session->set_flashdata($data);
-                redirect("siswa/detail/". $siswa_id);
+                ($siswa_id == 0) ? redirect("transaksi/pemasukan") : redirect("siswa/detail/". $siswa_id);
             } else {
                 $data = array(
                     'pesan' => 'Data Gagal Disimpan',
                     'icon'  => 'danger'
                 );
                 $this->session->set_flashdata($data);
-                redirect("siswa/detail/". $siswa_id);
+                ($siswa_id == 0) ? redirect("transaksi/pemasukan") : redirect("siswa/detail/". $siswa_id);
             }
         }
     }

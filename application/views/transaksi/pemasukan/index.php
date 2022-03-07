@@ -49,10 +49,7 @@
                                         <a href="<?= base_url() ?>transaksi/detail/pemasukan/<?= $d->id_pemasukan ?>" class="btn btn-success">
                                             <i class="fas fa-eye"></i>
                                         </a>
-                                        <a href="<?= base_url() ?>transaksi/edit/pemasukan/<?= $d->id_pemasukan ?>" class="btn btn-warning">
-                                            <i class="fas fa-edit"></i>
-                                        </a>
-                                        <a href="<?= base_url() ?>transaksi/hapus/pemasukan/<?= $d->id_pemasukan ?>" class="btn btn-danger">
+                                        <a href="<?= base_url() ?>transaksi/hapus/pemasukan/<?= $d->id_pemasukan ?>" class="btn btn-danger" onclick="return confirm('Apakah anda yakin ingin menghapus data ini?')">
                                             <i class="fas fa-trash"></i>
                                         </a>
                                     </td>
@@ -81,6 +78,7 @@
                 <div class="modal-body">
                     <form action="<?= base_url("transaksi/simpan/pemasukan") ?>" method="POST">
                         <input type="hidden" name="user_id" value="<?= $this->session->userdata('id') ?>">
+                        <input type="hidden" name="siswa_id" value="<?= 0 ?>">
                         <div class="form-group">
                             <label for="">Nama Kategori Pemasukan</label>
                             <select name="jenis_pemasukan_id" class="form-control">
