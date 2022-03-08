@@ -8,6 +8,15 @@
         </ol>
     </nav>
 
+    <?php if ($this->session->flashdata()): ?>
+		<div class="alert alert-dismissible fade show alert-<?= $this->session->flashdata('icon') ?> bg-<?= $this->session->flashdata('icon') ?> text-white">
+			<?= $this->session->flashdata('pesan') ?>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true" class="text-white">&times;</span>
+            </button>
+		</div>
+	<?php endif ?>
+
     <!-- card informasi kelas -->
     <div class="card mb-3">
         <div class="card-header bg-primary text-white">
@@ -34,6 +43,9 @@
             </button>
             <button class="btn btn-danger mb-3" data-toggle="modal" data-target="#modalImportSiswa">
                 <i class="fas fa-download"></i> Import Siswa
+            </button>
+            <button class="btn btn-info mb-3" data-toggle="modal" data-target="#modalnaikKelas">
+                <i class="fas fa-upload"></i> Naik Kelas
             </button>
             <div class="table-responsive">
                 <table class="table table-bordered table-striped table-hover" id="dataTable">
@@ -180,6 +192,40 @@
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
                         <button type="submit" class="btn btn-primary">Import</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>  
+    <!-- End Modal -->
+
+    <!-- Modal Import Siswa -->
+    <div class="modal fade" id="modalnaikKelas" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-info text-white">
+                    <h5 class="modal-title">
+                        Naik Kelas
+                    </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="<?= base_url() ?>kelas/naik" enctype="multipart/form-data" method="POST">
+                    <input type="hidden" name="kelas_id_sekarang" value="<?= $kelas->id_kelas ?>">
+                        <div class="form-group">
+                            <label>Pilih Kelas</label>
+                            <select name="kelas_id" class="form-control">
+                                <?php foreach($data_kelas as $kls): ?>
+                                    <option value="<?= $kls->id_kelas ?>"><?= $kls->nama_kelas ?></option>
+                                <?php endforeach; ?>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                        <button type="submit" class="btn btn-primary">Naik Kelas</button>
                     </form>
                 </div>
             </div>

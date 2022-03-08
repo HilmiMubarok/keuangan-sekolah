@@ -10,6 +10,11 @@ class KelasModel extends CI_Model
         return $this->db->get('kelas')->result();
     }
 
+    public function naikKelas($id, $data)
+    {
+        return $this->db->update("siswa", $data, $id);
+    }
+
     public function getSiswaByKelas($kelas_id)
     {
         $this->db->join('kelas', 'kelas.id_kelas = siswa.kelas_id');

@@ -33,11 +33,40 @@ class Kelas extends CI_Controller
         $data['siswa'] = $this->KelasModel->getSiswaByKelas($this->uri->segment(3))->result();
         $data['siswa_laki'] = $this->SiswaModel->getByJenkel($this->uri->segment(3), 'L');
         $data['siswa_perempuan'] = $this->SiswaModel->getByJenkel($this->uri->segment(3), 'P');
+        $data['data_kelas'] = $this->KelasModel->get();
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/navbar', $data);
         $this->load->view('kelas/detail', $data);
         $this->load->view('templates/footer', $data);
+    }
+
+    public function naik()
+    {
+        var_dump($this->input->post());
+
+        $id = array('kelas_id' => $this->input->post('kelas_id_sekarang'));
+        $kelas_id = $this->input->post('kelas_id');
+        $data = array(
+            'kelas_id' => $kelas_id
+        );
+        $update = $this->KelasModel->naikKelas($id, $data);
+        if ($update) {
+            $data = array(
+                'pesan' => 'Data Berhasil Diupdate',
+                'icon'  => 'success'
+            );
+            $this->session->set_flashdata($data);
+            redirect("kelas/detail/$id[kelas_id]");
+        } else {
+            $data = array(
+                'pesan' => 'Data Gagal Disimpan',
+                'icon'  => 'danger'
+            );
+            $this->session->set_flashdata($data);
+            redirect("kelas/detail/$id[kelas_id]");
+        }
+
     }
 
     public function simpan()
