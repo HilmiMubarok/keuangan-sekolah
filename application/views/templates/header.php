@@ -106,12 +106,8 @@ https://cdn.datatables.net/responsive/2.2.9/css/responsive.bootstrap4.min.css --
 				<div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
 				  <div class="bg-white py-2 collapse-inner rounded">
 				    <h6 class="collapse-header">Laporan</h6>
-				    <a class="collapse-item" href="<?= base_url("laporan/admin") ?>">Admin</a>
-				    <a class="collapse-item" href="<?= base_url("laporan/kategori") ?>">Kategori</a>
-				    <a class="collapse-item" href="<?= base_url("laporan/aktiva_tetap") ?>">Aktiva Tetap</a>
-				    <a class="collapse-item" href="<?= base_url("laporan/penyusutan") ?>">Penyusutan</a>
-				    <a class="collapse-item" href="<?= base_url("laporan/at_dihentikan") ?>">AT Dihentikan</a>
-				    <a class="collapse-item" href="<?= base_url("laporan/penjualan") ?>">Penjualan</a>
+				    <a class="collapse-item" href="<?= base_url("laporan/pengeluaran") ?>">Pengeluaran</a>
+				    <a class="collapse-item" href="<?= base_url("laporan/pemasukan") ?>">Pemasukan</a>
 				    
 				  </div>
 				</div>

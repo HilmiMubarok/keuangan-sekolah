@@ -3,9 +3,33 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Laporan extends CI_Controller {
 
+	// construct
+	public function __construct()
+	{
+		parent::__construct();
+		$this->load->model('PengeluaranModel');
+		$this->load->model('TransaksiModel');
+
+		// load helper
+		$this->load->helper('tanggal_helper');
+	}
+
 	public function index()
 	{
 		redirect('oops');
+	}
+
+	public function pengeluaran()
+	{
+		$data['title'] = 'Laporan Pengeluaran';
+        $data['jabatan']   = $this->session->userdata('role');
+        $data['nama_user'] = $this->session->userdata('name');
+		$data['pengeluaran'] = $this->TransaksiModel->get('pengeluaran');
+		
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/navbar', $data);
+        $this->load->view('laporan/pengeluaran', $data);
+        $this->load->view('templates/footer', $data);
 	}
 
 	public function admin()
