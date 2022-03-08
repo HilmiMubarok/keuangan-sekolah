@@ -50,7 +50,7 @@
                     <h5 class="card-title">Tambah User</h5>
                 </div>
                 <div class="card-body">
-                    <form action="">
+                    <form action="<?= base_url('setting/saveuser') ?>" method="POST">
                         <div class="form-group">
                             <label for="">Nama</label>
                             <input type="text" name="user_name" class="form-control">
@@ -67,7 +67,7 @@
                                 <?php endforeach?>
                             </select>
                         </div>
-                        <button class="btn btn-primary">
+                        <button class="btn btn-primary" type="submit">
                             <i class="fas fa-plus"></i> Tambah User
                         </button>
                     </form>

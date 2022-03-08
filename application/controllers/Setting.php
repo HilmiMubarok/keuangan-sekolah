@@ -9,6 +9,7 @@ class Setting extends CI_Controller {
 		$this->load->model('SettingModel');
 		$this->load->model('RoleModel');
         $this->load->model('AuthModel');
+        $this->load->model('UserModel');
 
 	}
 
@@ -24,6 +25,34 @@ class Setting extends CI_Controller {
         $this->load->view('templates/navbar', $data);
         $this->load->view('pengaturan/index', $data);
         $this->load->view('templates/footer', $data);
+    }
+
+    public function saveUser()
+    {
+        $data = [
+            'role_id' => intval($this->input->post('role_id')),
+            'user_name' => $this->input->post('user_name'),
+            'user_username' => $this->input->post('user_username'),
+            'user_pass' => password_hash($this->input->post('user_username'), PASSWORD_BCRYPT)
+        ];
+
+        $save = $this->UserModel->save($data);
+
+        if($save){
+            $data = array(
+                'pesan' => 'User Baru Berhasil Ditambahkan',
+                'icon'  => 'success'
+            );
+            $this->session->set_flashdata($data);
+            redirect("setting");
+        } else {
+            $data = array(
+                'pesan' => 'User Baru Gagal Ditambahkan',
+                'icon'  => 'error'
+            );
+            $this->session->set_flashdata($data);
+            redirect("setting");
+        }
     }
 
     public function changePassword()
