@@ -124,7 +124,15 @@ class Transaksi extends CI_Controller {
             $this->load->view('transaksi/pengeluaran/detail', $data);
             $this->load->view('templates/footer');
         } else {
-
+            $data['title'] = 'Detail Pemasukan';
+            $data['jabatan']   = $this->session->userdata('role');
+            $data['nama_user'] = $this->session->userdata('name');
+            $data['pemasukan'] = $this->PemasukanModel->get();
+            $data['data_pemasukan'] = $this->TransaksiModel->get_by(['pemasukan.id_pemasukan' => $id], 'pemasukan');
+            $this->load->view('templates/header', $data);
+            $this->load->view('templates/navbar', $data);
+            $this->load->view('transaksi/pemasukan/detail', $data);
+            $this->load->view('templates/footer');
         }
     }
     
