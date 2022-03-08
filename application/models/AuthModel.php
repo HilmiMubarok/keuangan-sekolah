@@ -13,6 +13,11 @@ class AuthModel extends CI_Model {
 		return $this->db->where('id_user', $id)->get('users')->row();
 	}
 
+	public function updatePassword($id, $data)
+	{
+		return $this->db->update("users", $data, $id);
+	}
+
 }
 
 /* End of file AuthModel.php */

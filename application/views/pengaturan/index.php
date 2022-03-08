@@ -23,7 +23,7 @@
                     <h5 class="card-title">Ganti Password</h5>
                 </div>
                 <div class="card-body">
-                    <form action="">
+                    <form action="<?= base_url('setting/changepassword') ?>" method="POST">
                         <div class="form-group">
                             <label for="">Password Lama</label>
                             <input type="password" name="pass_lama" class="form-control">
@@ -36,7 +36,7 @@
                             <label for="">Konfirmasi Password Baru</label>
                             <input type="password" name="pass_baru_confirm" class="form-control">
                         </div>
-                        <button class="btn btn-primary">
+                        <button class="btn btn-primary" type="submit">
                             <i class="fas fa-save"></i> Ganti Password
                         </button>
                     </form>
@@ -75,28 +75,5 @@
             </div>
         </div>
     </div>
-
-    <div class="row my-3">
-        <div class="col">
-            <div class="card">
-                <div class="card-header bg-success text-white">
-                    <h5 class="card-title">Setting Tahun Ajaran</h5>
-                </div>
-                <div class="card-body">
-                    <div class="text-center">
-                        <button class="btn btn-danger text-white btn-lg mb-3">
-                            <i class="fas fa-upload"></i> Tambah Tahun Ajaran
-                        </button>
-                        <p class="text-center">
-                            <div class="w-50 mx-auto">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit perspiciatis, maiores nobis consequuntur eum similique excepturi voluptatem nam, sint ipsum consectetur sapiente voluptates, deserunt natus iste laudantium vero ipsam expedita.
-                            </div>
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-	
 	
 </div>
