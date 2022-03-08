@@ -44,36 +44,38 @@
             </div>
         </div>
 
-        <div class="col">
-            <div class="card">
-                <div class="card-header bg-danger text-white">
-                    <h5 class="card-title">Tambah User</h5>
-                </div>
-                <div class="card-body">
-                    <form action="<?= base_url('setting/saveuser') ?>" method="POST">
-                        <div class="form-group">
-                            <label for="">Nama</label>
-                            <input type="text" name="user_name" class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <label for="">Username</label>
-                            <input type="text" name="user_username" class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <label for="">Jabatan</label>
-                            <select name="role_id" class="form-control">
-                                <?php foreach($roles as $r): ?>
-                                    <option value="<?= $r->id_role ?>"><?= $r->name ?></option>
-                                <?php endforeach?>
-                            </select>
-                        </div>
-                        <button class="btn btn-primary" type="submit">
-                            <i class="fas fa-plus"></i> Tambah User
-                        </button>
-                    </form>
+        <?php if($this->session->userdata('role') == 'Admin'): ?>
+            <div class="col">
+                <div class="card">
+                    <div class="card-header bg-danger text-white">
+                        <h5 class="card-title">Tambah User</h5>
+                    </div>
+                    <div class="card-body">
+                        <form action="<?= base_url('setting/saveuser') ?>" method="POST">
+                            <div class="form-group">
+                                <label for="">Nama</label>
+                                <input type="text" name="user_name" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="">Username</label>
+                                <input type="text" name="user_username" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="">Jabatan</label>
+                                <select name="role_id" class="form-control">
+                                    <?php foreach($roles as $r): ?>
+                                        <option value="<?= $r->id_role ?>"><?= $r->name ?></option>
+                                    <?php endforeach?>
+                                </select>
+                            </div>
+                            <button class="btn btn-primary" type="submit">
+                                <i class="fas fa-plus"></i> Tambah User
+                            </button>
+                        </form>
+                    </div>
                 </div>
             </div>
-        </div>
+        <?php endif ?>
     </div>
 	
 </div>
