@@ -81,6 +81,37 @@ class Siswa extends CI_Controller
         }
     }
 
+
+    public function hapus()
+	{
+		
+		$where = array(
+			'id_siswa' => $this->uri->segment(3)
+		);
+
+		$hapus = $this->SiswaModel->delete($where);
+
+		if ($hapus) {
+			$data = array(
+				'pesan' => 'Data Berhasil Dihapus',
+				'icon'  => 'success'
+			);
+			$this->session->set_flashdata($data);
+			redirect("siswa");
+		} else {
+			$data = array(
+				'pesan' => 'Data Gagal Dihapus',
+				'icon'  => 'danger'
+			);
+			$this->session->set_flashdata($data);
+			redirect("siswa");
+		}
+	}
+
+
+    
+    
+
 }
 
 

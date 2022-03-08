@@ -76,7 +76,7 @@
                                     <a href="" class="btn btn-warning">
                                         <i class="fas fa-edit"></i>
                                     </a>
-                                    <a href="" class="btn btn-danger">
+                                    <a href="<?= base_url() ?>siswa/hapus/<?= $s->id_siswa ?>" class="btn btn-danger">
                                         <i class="fas fa-trash"></i>
                                     </a>
                                 </td>
