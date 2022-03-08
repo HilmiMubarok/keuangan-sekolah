@@ -44,7 +44,7 @@ class Siswa extends CI_Controller
         $this->load->view('templates/footer', $data);
     }
 
-    public function save()
+    public function save($isKelas = null)
     {
         $data = [
             'kelas_id' => intval($this->input->post('kelas_id')),
@@ -70,14 +70,14 @@ class Siswa extends CI_Controller
                 'icon'  => 'success'
             );
             $this->session->set_flashdata($data);
-            redirect("siswa");
+            ( $isKelas == null ) ? redirect('siswa') : redirect('kelas/detail/'.$this->input->post('kelas_id'));
         } else {
             $data = array(
                 'pesan' => 'Data Gagal Disimpan',
                 'icon'  => 'danger'
             );
             $this->session->set_flashdata($data);
-            redirect("siswa");
+            ( $isKelas == null ) ? redirect('siswa') : redirect('kelas/detail/'.$this->input->post('kelas_id'));
         }
     }
 
