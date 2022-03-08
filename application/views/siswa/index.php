@@ -75,7 +75,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form action="<?= base_url() ?>siswa/save">
+                    <form action="<?= base_url() ?>siswa/save" method="POST">
                         <div class="form-group">
                             <label>Kelas</label>
                             <select name="kelas_id" class="form-control">
@@ -109,7 +109,7 @@
                         </div>
                         <div class="form-group">
                             <label>Tanggal Lahir</label>
-                            <input type="date" name="tanggal_lahir" class="form-control">
+                            <input type="date" name="tgl_lahir" class="form-control">
                         </div>
                         <div class="form-group">
                             <label>Alamat</label>

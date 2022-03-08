@@ -44,6 +44,43 @@ class Siswa extends CI_Controller
         $this->load->view('templates/footer', $data);
     }
 
+    public function save()
+    {
+        $data = [
+            'kelas_id' => intval($this->input->post('kelas_id')),
+            'nis' => $this->input->post('nis'),
+            'nisn' => $this->input->post('nisn'),
+            'nama' => $this->input->post('nama'),
+            'jenkel' => $this->input->post('jenkel'),
+            'tempat_lahir' => $this->input->post('tempat_lahir'),
+            'tgl_lahir' => formatHariTanggal($this->input->post('tgl_lahir')),
+            'alamat' => $this->input->post('alamat'),
+            'nama_ayah' => $this->input->post('nama_ayah'),
+            'nama_ibu' => $this->input->post('nama_ibu'),
+            'pekerjaan_ortu' => $this->input->post('pekerjaan_ortu'),
+            'asal_sekolah' => $this->input->post('asal_sekolah'),
+            'telp' => $this->input->post('telp'),
+            'status' => 'siswa'
+        ];
+
+        $save = $this->SiswaModel->save($data);
+        if ($save) {
+            $data = array(
+                'pesan' => 'Data Berhasil Disimpan',
+                'icon'  => 'success'
+            );
+            $this->session->set_flashdata($data);
+            redirect("siswa");
+        } else {
+            $data = array(
+                'pesan' => 'Data Gagal Disimpan',
+                'icon'  => 'danger'
+            );
+            $this->session->set_flashdata($data);
+            redirect("siswa");
+        }
+    }
+
 }
 
 
