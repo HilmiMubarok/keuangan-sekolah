@@ -49,9 +49,6 @@
                                         <a href="<?= base_url() ?>transaksi/detail/pengeluaran/<?= $d->id_pengeluaran ?>" class="btn btn-success">
                                             <i class="fas fa-eye"></i>
                                         </a>
-                                        <a href="<?= base_url() ?>transaksi/edit/pengeluaran/<?= $d->id_pengeluaran ?>" class="btn btn-warning">
-                                            <i class="fas fa-edit"></i>
-                                        </a>
                                         <a href="<?= base_url() ?>transaksi/hapus/pengeluaran/<?= $d->id_pengeluaran ?>" class="btn btn-danger">
                                             <i class="fas fa-trash"></i>
                                         </a>
