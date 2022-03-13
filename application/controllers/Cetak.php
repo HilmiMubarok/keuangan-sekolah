@@ -7,11 +7,40 @@ class Cetak extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->model('DashboardModel');
+		$this->load->model('TransaksiModel');
 		$this->load->library('Pdf');
 		$this->load->helper('tanggal');
 		if ($this->session->userdata('logged_in') == FALSE ) {
 			redirect("auth");
 		}
+	}
+
+	public function notaPengeluaran($id)
+	{
+		$data['title'] = 'Laporan Pengeluaran';
+        $data['jabatan']   = $this->session->userdata('role');
+        $data['nama_user'] = $this->session->userdata('name');
+		$data['waktu']   = formatHariTanggal(date('d-M-Y'));
+
+		$data['pengeluaran'] = $this->TransaksiModel->get_by(['pengeluaran.id_pengeluaran' => $id], 'pengeluaran');
+
+		$this->pdf->load_view('cetak/nota_pengeluaran', $data);
+		$this->pdf->render();
+		$this->pdf->stream("nota_pengeluaran.pdf", array('Attachment'=>0));
+	}
+
+	public function notaPemasukan($id)
+	{
+		$data['title'] = 'Laporan Pemasukan';
+        $data['jabatan']   = $this->session->userdata('role');
+        $data['nama_user'] = $this->session->userdata('name');
+		$data['waktu']   = formatHariTanggal(date('d-M-Y'));
+
+		$data['pengeluaran'] = $this->TransaksiModel->get_by(['pengeluaran.id_pengeluaran' => $id], 'pengeluaran');
+
+		$this->pdf->load_view('cetak/nota_pengeluaran', $data);
+		$this->pdf->render();
+		$this->pdf->stream("nota_pengeluaran.pdf", array('Attachment'=>0));
 	}
 
 	public function admin()

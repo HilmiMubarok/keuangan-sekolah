@@ -13,19 +13,8 @@ class TransaksiModel extends CI_Model
         } else {
             $this->db->join('jenis_pemasukan', 'jenis_pemasukan.id_jenis_pemasukan = pemasukan.jenis_pemasukan_id');
             $this->db->join('users', 'users.id_user = pemasukan.user_id');
-            // $this->db->where(['pemasukan.siswa_id =' => '0']);
             return $this->db->get('pemasukan')->result();
         }
-        // $table = "jenis_$type"; //jenis_pemasukan
-        // $table_id = "$table.id_$table "; // jenis_pemasukan.id_pemasukan
-        // $table_join_id = "= $type.$table" ."_id"; // pemasukan.jenis_pemasukan_id
-
-        // $join = $table_id.$table_join_id;
-        // $user = 'users.id_user = '.$type.'.user_id';
-
-        // $this->db->join($table, $join);
-        // $this->db->join('users', $user);
-        // return $this->db->get($type)->result();
     }
 
     public function getTotalTransaksi($type)

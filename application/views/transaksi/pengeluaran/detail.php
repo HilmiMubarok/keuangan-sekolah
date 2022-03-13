@@ -23,7 +23,7 @@
             </ul>
         </div>
         <div class="card-footer">
-            <a href="" class="btn btn-primary">
+            <a href="<?= base_url() ?>cetak/notapengeluaran/<?= $data_pengeluaran->id_pengeluaran ?>" target="_blank" class="btn btn-primary">
                 <i class="fas fa-print"></i> Cetak Laporan
             </a>
             <a href="<?= base_url('transaksi/pengeluaran') ?>" class="btn btn-success">
