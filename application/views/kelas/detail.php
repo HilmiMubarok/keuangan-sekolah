@@ -220,6 +220,7 @@
                                 <?php foreach($data_kelas as $kls): ?>
                                     <option value="<?= $kls->id_kelas ?>"><?= $kls->nama_kelas ?></option>
                                 <?php endforeach; ?>
+                                    <option value="0">Lulus</option>
                             </select>
                         </div>
                     </div>

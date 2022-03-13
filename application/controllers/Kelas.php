@@ -43,12 +43,11 @@ class Kelas extends CI_Controller
 
     public function naik()
     {
-        var_dump($this->input->post());
-
         $id = array('kelas_id' => $this->input->post('kelas_id_sekarang'));
         $kelas_id = $this->input->post('kelas_id');
         $data = array(
-            'kelas_id' => $kelas_id
+            'kelas_id' => $kelas_id,
+            'status' => ($kelas_id == '0' ? 'alumni' : 'siswa')
         );
         $update = $this->KelasModel->naikKelas($id, $data);
         if ($update) {

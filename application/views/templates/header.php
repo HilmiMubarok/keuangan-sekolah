@@ -73,6 +73,7 @@ https://cdn.datatables.net/responsive/2.2.9/css/responsive.bootstrap4.min.css --
 				    <a class="collapse-item" href="<?= base_url("jurusan") ?>">Jurusan</a>
 				    <a class="collapse-item" href="<?= base_url("kelas") ?>">Kelas</a>
 				    <a class="collapse-item" href="<?= base_url("siswa") ?>">Siswa</a>
+				    <a class="collapse-item" href="<?= base_url("alumni") ?>">Alumni</a>
 				    <a class="collapse-item" href="<?= base_url("pengeluaran") ?>">Pengeluaran</a>
 				    <a class="collapse-item" href="<?= base_url("pemasukan") ?>">Pemasukan</a>
 				    
