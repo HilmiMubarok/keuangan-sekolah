@@ -36,11 +36,11 @@ class Cetak extends CI_Controller {
         $data['nama_user'] = $this->session->userdata('name');
 		$data['waktu']   = formatHariTanggal(date('d-M-Y'));
 
-		$data['pengeluaran'] = $this->TransaksiModel->get_by(['pengeluaran.id_pengeluaran' => $id], 'pengeluaran');
+		$data['pemasukan'] = $this->TransaksiModel->get_by(['pemasukan.id_pemasukan' => $id], 'pemasukan');
 
-		$this->pdf->load_view('cetak/nota_pengeluaran', $data);
+		$this->pdf->load_view('cetak/nota_pemasukan', $data);
 		$this->pdf->render();
-		$this->pdf->stream("nota_pengeluaran.pdf", array('Attachment'=>0));
+		$this->pdf->stream("nota_pemasukan.pdf", array('Attachment'=>0));
 	}
 
 	public function admin()
