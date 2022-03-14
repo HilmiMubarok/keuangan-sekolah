@@ -35,8 +35,8 @@ class SiswaModel extends CI_Model
 
     public function get_by($where)
     {
-        $this->db->join('kelas', 'kelas.id_kelas = siswa.kelas_id');
-        $this->db->join('jurusan', 'jurusan.id_jurusan = kelas.jurusan_id');
+        $this->db->join('kelas', 'kelas.id_kelas = siswa.kelas_id', 'left');
+        $this->db->join('jurusan', 'jurusan.id_jurusan = kelas.jurusan_id', 'left');
         return $this->db->get_where("siswa", $where)->row();
     }
 

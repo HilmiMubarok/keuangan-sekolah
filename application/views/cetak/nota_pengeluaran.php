@@ -31,10 +31,12 @@
 			font-size: 20px;
 			margin-right: 120px;
 		}
+		
 		.alamat_sekolah {
 			width: 70%;
 			text-align: center;
 			margin-left: 40px;
+			margin-top: 5px;
 		}
 
 		.ttd {
@@ -68,7 +70,7 @@
 			<div class="col" style="text-align: center;">
 				<div class="nm_sekolah">SMK NU 02 ROWOSARI</div>
 				<div class="alamat_sekolah">
-					Jl. Kyai Tulus - Jetis, Jetis, Kendal, Jetis, Kec. Kendal, Kabupaten Kendal, Jawa Tengah 51315
+					Kampus 1 : Jl. Bahari Utara No.39 Telp. (0294)641702 <br> Kampus 2 : Jl. Teruna, Wonotenggang, Rowosari, Kendal Telp.(0294)3641306
 				</div>
 			</div>
 		</header>

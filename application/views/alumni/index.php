@@ -38,7 +38,7 @@
                         <tr>
                             <td><?= $no++ ?></td>
                             <td><?= $s->nama ?></td>
-                            <td><?= $s->nama_kelas ?></td>
+                            <td>Lulus</td>
                             <td><?= $s->alamat ?></td>
                             <td><?= $s->telp ?></td>
                             <td>

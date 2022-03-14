@@ -23,9 +23,11 @@
             <h5 class="card-title">Detail Siswa</h5>
         </div>
         <div class="card-body">
-            <button data-toggle="modal" data-target="#modalAddBayarSiswa" class="btn btn-primary text-white mb-3">
-                <i class="fas fa-plus"></i> Tambah Pembayaran Siswa
-            </button>
+            <?php if ($siswa->nama_kelas): ?>
+                <button data-toggle="modal" data-target="#modalAddBayarSiswa" class="btn btn-primary text-white mb-3">
+                    <i class="fas fa-plus"></i> Tambah Pembayaran Siswa
+                </button>
+            <?php endif ?>
             <table class="table table-bordered table-striped table-hover">
                 <tr>
                     <th>Nama</th>
@@ -33,7 +35,7 @@
                 </tr>
                 <tr>
                     <th>Kelas</th>
-                    <td><?= $siswa->nama_kelas ?></td>
+                    <td><?= (!$siswa->nama_kelas ? "Lulus" : $siswa->nama_kelas) ?></td>
                 </tr>
                 <tr>
                     <th>NIS</th>
@@ -143,10 +145,7 @@
                         </div>
                         <div class="form-group">
                             <label>Tanggal</label>
-                            <input type="text" id="datepicker" name="tanggal" class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <label>Nominal</label>
+                            <input	kendal>Nominal</label>
                             <input type="number" class="form-control" name="nominal" placeholder="Masukkan Nominal">
                         </div>
                         <div class="form-group">

@@ -15,6 +15,41 @@ class Cetak extends CI_Controller {
 		}
 	}
 
+	public function pengeluaran($type = null)
+	{
+		$data['title'] = 'Laporan Pengeluaran';
+        $data['jabatan']   = $this->session->userdata('role');
+        $data['nama_user'] = $this->session->userdata('name');
+		$data['waktu']   = formatHariTanggal(date('d-M-Y'));
+		$data['pengeluaran'] = $this->TransaksiModel->get('pengeluaran');
+		$data['total_pengeluaran'] = $this->TransaksiModel->getTotalTransaksi("pengeluaran")->nominal;
+
+		switch ($type) {
+			case 'periode':
+
+
+				var_dump($this->uri->segment()); die;
+				$this->pdf->load_view('cetak/pengeluaran', $data);
+				$this->pdf->render();
+				$this->pdf->stream("laporan_pengeluaran_periode.pdf", array('Attachment'=>0));
+				break;
+
+			case 'bulan':
+				# code...
+				break;
+			
+			case 'tahun':
+				# code...
+				break;
+
+			default:
+				$this->pdf->load_view('cetak/pengeluaran', $data);
+				$this->pdf->render();
+				$this->pdf->stream("laporan_pengeluaran.pdf", array('Attachment'=>0));
+				break;
+		}
+	}
+
 	public function notaPengeluaran($id)
 	{
 		$data['title'] = 'Laporan Pengeluaran';

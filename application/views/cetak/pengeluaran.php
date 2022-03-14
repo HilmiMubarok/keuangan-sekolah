@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title><?= $title ?></title>
+	<title><?= "" ?></title>
 	<style>
 		.container {
 			border: 2px solid;
@@ -68,13 +68,13 @@
 			<div class="col" style="text-align: center;">
 				<div class="nm_sekolah">SMK NU 02 ROWOSARI</div>
 				<div class="alamat_sekolah">
-					Kampus 1 : Jl. Bahari Utara No.39 Telp. (0294)641702 <br> Kampus 2 : Jl. Teruna, Wonotenggang, Rowosari, Kendal Telp.(0294)3641306
+					Kampus 1 : Jl. Bahari Utara No.39 Telp. (0294)641702 - Kampus 2 : Jl. Teruna, Wonotenggang, Rowosari, Kendal Telp.(0294)3641306
 				</div>
 			</div>
 		</header>
 		<div class="body-header">
 			<div class="body-text">
-				Nota Pemasukan
+				Laporan Pengeluaran
 			</div>
 		</div>
 		<div class="body">
@@ -83,40 +83,40 @@
 					<tr>
 						<th>Kategori</th>
 						<th>Tanggal</th>
-						<th>Nominal</th>
 						<th>Keterangan</th>
-						<th>Sumber</th>
 						<th>Diinput oleh</th>
+						<th>Nominal</th>
 					</tr>
 				</thead>
 				<tbody>
+                    <?php foreach($pengeluaran as $p): ?>
+                        <tr>
+                            <td><?= $p->nama_jenis_pengeluaran ?></td>
+                            <td><?= formatHariTanggal($p->tanggal) ?></td>
+                            <td><?= $p->keterangan ?></td>
+                            <td><?= $p->user_name ?></td>
+                            <td><?= "Rp. ". number_format($p->nominal) ?></td>
+                        </tr>
+                    <?php endforeach ?>
                     <tr>
-                        <td><?= $pemasukan->nama_jenis_pemasukan ?></td>
-                        <td><?= formatHariTanggal($pemasukan->tanggal) ?></td>
-                        <td><?= $pemasukan->nominal ?></td>
-                        <td><?= $pemasukan->keterangan ?></td>
-                        <td><?= ($pemasukan->siswa_id == "0" ? $pemasukan->sumber_pemasukan : $pemasukan->nama) ?></td>
-                        <td><?= $pemasukan->user_name ?></td>
+                        <th colspan="4">Total Pengeluaran</th>
+                        <td><?= "Rp.". number_format($total_pengeluaran) ?></td>
                     </tr>
 				</tbody>
 			</table>
-			<table border="0" style="margin-top: 20px; width:100%">
-				<tr>
-					<td colspan="3" align="center"><?= $waktu ?></td>
-				</tr>
-				<tr>
-					<td align="center" style="width:33%;height: 150px; vertical-align:bottom">
-						<?= $this->session->userdata('name'); ?>
-					</td>
-					<td align="center" style="width:33%;height: 150px; vertical-align:bottom">
-						<?= $this->session->userdata('name'); ?>
-					</td>
-					<td align="center" style="width:33%;height: 150px; vertical-align:bottom">
-						<?= $this->session->userdata('name'); ?>
-					</td>
-				</tr>
-
-			</table>
+			<div class="ttd">
+				<div class="content ttd-item">
+					<?= $waktu ?> <br><br><br><br><br> <?= $this->session->userdata('name'); ?>
+				</div>
+                <div class="content ttd-item">
+					<?= $waktu ?> <br><br><br><br><br> <?= $this->session->userdata('name'); ?>
+				</div>
+			</div>
+            <div class="ttd">
+				<div class="content ttd-item-1">
+					<?= $waktu ?> <br><br><br><br><br> <?= $this->session->userdata('name'); ?>
+				</div>
+			</div>
 		</div>
 	</div>
 </body>

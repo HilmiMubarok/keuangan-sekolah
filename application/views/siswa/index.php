@@ -45,13 +45,13 @@
                             <td><?= $s->alamat ?></td>
                             <td><?= $s->telp ?></td>
                             <td>
-                                <a href="<?= base_url() ?>siswa/detail/<?= $s->id_siswa ?>" class="btn btn-success text-white">
+                                <a href="<?= base_url() ?>siswa/detail/<?= $s->id_siswa ?>" class="btn btn-success text-white" data-toggle="tooltip" data-placement="top" title="Detail">
                                     <i class="fas fa-eye"></i>
                                 </a>
-                                <a href="" class="btn btn-warning text-white">
+                                <a href="" class="btn btn-warning text-white" data-toggle="tooltip" data-placement="top" title="Edit">
                                     <i class="fas fa-edit"></i>
                                 </a>
-                                <a href="<?= base_url() ?>siswa/hapus/<?= $s->id_siswa ?>" class="btn btn-danger">
+                                <a href="<?= base_url() ?>siswa/hapus/<?= $s->id_siswa ?>" class="btn btn-danger" data-toggle="tooltip" data-placement="top" title="Hapus">
                                     <i class="fas fa-trash"></i>
                                 </a>
                             </td>
