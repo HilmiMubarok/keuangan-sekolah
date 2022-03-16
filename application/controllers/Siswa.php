@@ -81,15 +81,70 @@ class Siswa extends CI_Controller
         }
     }
 
+    public function edit()
+	{
+		$data['title']     = "Edit Siswa";
+        $data['jabatan']   = $this->session->userdata('role');
+        $data['nama_user'] = $this->session->userdata('name');
+		$get_siswa      = array('id_siswa' => $this->uri->segment(3));
+		$data['siswa']  = $this->SiswaModel->get_by($get_siswa, 'siswa');
+        $data['kelas'] = $this->KelasModel->get();
+
+		$this->load->view('templates/header', $data);
+		$this->load->view('templates/navbar', $data);
+		$this->load->view('siswa/edit.php', $data);
+		$this->load->view('templates/footer', $data);
+	}
+
+    public function update()
+    {
+        $id = ['id_siswa' => $this->input->post('id_siswa')];
+        $data = [
+            'kelas_id' => intval($this->input->post('kelas_id')),
+            'nis' => $this->input->post('nis'),
+            'nisn' => $this->input->post('nisn'),
+            'nama' => $this->input->post('nama'),
+            'jenkel' => $this->input->post('jenkel'),
+            'tempat_lahir' => $this->input->post('tempat_lahir'),
+            'tgl_lahir' => formatHariTanggal($this->input->post('tgl_lahir')),
+            'alamat' => $this->input->post('alamat'),
+            'nama_ayah' => $this->input->post('nama_ayah'),
+            'nama_ibu' => $this->input->post('nama_ibu'),
+            'pekerjaan_ortu' => $this->input->post('pekerjaan_ortu'),
+            'asal_sekolah' => $this->input->post('asal_sekolah'),
+            'telp' => $this->input->post('telp'),
+            'status' => 'siswa'
+        ];
+
+        $update = $this->SiswaModel->update($id, $data, 'siswa');
+        if ($update) {
+            $data = array(
+                'pesan' => 'Data Berhasil Diupdate',
+                'icon'  => 'success'
+            );
+            $this->session->set_flashdata($data);
+            redirect("siswa");
+        } else {
+            $data = array(
+                'pesan' => 'Data Gagal Diupdate',
+                'icon'  => 'danger'
+            );
+            $this->session->set_flashdata($data);
+            redirect("siswa");
+        }
+    }
+
 
     public function hapus()
 	{
-		
-		$where = array(
-			'id_siswa' => $this->uri->segment(3)
-		);
 
-		$hapus = $this->SiswaModel->delete($where);
+        $id = ['id_siswa' => $this->uri->segment(3)];
+
+        $data = [
+            'status' => 'hapus'
+        ];
+
+		$hapus = $this->SiswaModel->update($id, $data, 'siswa');
 
 		if ($hapus) {
 			$data = array(

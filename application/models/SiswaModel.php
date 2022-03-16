@@ -8,6 +8,9 @@ class SiswaModel extends CI_Model
     {
         $this->db->join('kelas', 'kelas.id_kelas = siswa.kelas_id');
         $this->db->join('jurusan', 'jurusan.id_jurusan = kelas.jurusan_id');
+        // where status = siswa
+        $this->db->where('siswa.status', 'siswa');
+
         return $this->db->get('siswa')->result();
     }
 

@@ -111,7 +111,7 @@
                         </div>
                         <div class="form-group">
                             <label>Tanggal Lahir</label>
-                            <input type="date" name="tgl_lahir" class="form-control">
+                            <input type="text" name="tgl_lahir" class="form-control">
                         </div>
                         <div class="form-group">
                             <label>Alamat</label>
