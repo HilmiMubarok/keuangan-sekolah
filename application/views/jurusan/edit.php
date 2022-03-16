@@ -9,7 +9,7 @@
     </nav>
 	
 	<div class="row">
-		<div class="col-6">
+		<div class="col-12">
 			<div class="card shadow">
 				<div class="card-header bg-primary text-white">
 					<h5>Edit Jurusan <?= $jurusan->nama_jurusan ?></h5>

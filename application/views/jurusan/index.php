@@ -17,7 +17,7 @@
 	<?php endif ?>
 
     <div class="row">
-        <div class="col-6">
+        <div class="col-12 col-lg-6 mb-3">
             <div class="card">
                 <div class="card-header bg-success text-white">
                     <h5 class="card-title">Tambah Jurusan</h5>
@@ -35,7 +35,7 @@
                 </div>
             </div>
         </div> <!-- End Col -->
-        <div class="col-6">
+        <div class="col-12 col-lg-6 mb-3">
             <div class="card">
                 <div class="card-header bg-primary text-white">
                     <h5 class="card-title">
@@ -43,40 +43,38 @@
                     </h5>
                 </div>
                 <div class="card-body">
-                    <table class="table table-hover table-stripped table-bordered" id="dataTable">
-                        <thead>
-                            <tr>
-                                <th>No</th>
-                                <th>Nama Jurusan</th>
-                                <th>Opsi</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-        <?php if (count($jurusan) < 1): ?>
-                            <tr>
-                                <td colspan="3" class="text-center h3 p-5">Data Kosong</td>
-                            </tr>
-        <?php endif ?>
-        <?php $no = 1; foreach ($jurusan as $j): ?>
-                            <tr>
-                                <td><?= $no ?></td>
-                                <td><?= $j->nama_jurusan ?></td>
-                                <td>
-                                    <a href="<?= base_url() ?>jurusan/edit/<?= $j->id_jurusan ?>">
-                                        <button class="btn btn-warning text-white">
+                    <div class="table-responsive">
+                        <table class="table table-hover table-stripped table-bordered" id="dataTable">
+                            <thead>
+                                <tr>
+                                    <th>No</th>
+                                    <th>Nama Jurusan</th>
+                                    <th>Opsi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+            <?php if (count($jurusan) < 1): ?>
+                                <tr>
+                                    <td colspan="3" class="text-center h3 p-5">Data Kosong</td>
+                                </tr>
+            <?php endif ?>
+            <?php $no = 1; foreach ($jurusan as $j): ?>
+                                <tr>
+                                    <td><?= $no ?></td>
+                                    <td><?= $j->nama_jurusan ?></td>
+                                    <td>
+                                        <a href="<?= base_url() ?>jurusan/edit/<?= $j->id_jurusan ?>" data-toggle="tooltip" class="btn btn-warning text-white" data-placement="top" title="Edit">
                                             <i class="fas fa-edit"></i>
-                                        </button>
-                                    </a>
-                                    <a href="<?= base_url() ?>jurusan/hapus/<?= $j->id_jurusan ?>" onclick="return confirm('Apakah anda ingin menghapus data ini?')">
-                                        <button class="btn btn-danger">
+                                        </a>
+                                        <a href="<?= base_url() ?>jurusan/hapus/<?= $j->id_jurusan ?>" onclick="return confirm('Apakah anda ingin menghapus data ini?')" class="btn btn-danger" data-toggle="tooltip" data-placement="top" title="Hapus">
                                             <i class="fas fa-trash"></i>
-                                        </button>
-                                    </a>
-                                </td>
-                            </tr>
-        <?php $no++; endforeach ?>
-                        </tbody>
-                    </table>
+                                        </a>
+                                    </td>
+                                </tr>
+            <?php $no++; endforeach ?>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div> <!-- End Col -->
