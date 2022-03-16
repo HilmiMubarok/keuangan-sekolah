@@ -25,40 +25,42 @@
             <button class="btn btn-primary mb-3" data-toggle="modal" data-target="#modalAddSiswa">
                 <i class="fas fa-plus"></i> Tambah Siswa
             </button>
-            <table id="dataTable" class="table table-bordered table-hover table-striped dt-responsive nowrap">
-                <thead>
-                    <tr>
-                        <th>No</th>
-                        <th>Nama</th>
-                        <th>Kelas</th>
-                        <th>Alamat</th>
-                        <th>No. Telepon</th>
-                        <th>Opsi</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php $no = 1; foreach($siswa as $s): ?>
+            <div class="table-responsive">
+                <table id="dataTable" class="table table-bordered table-hover table-striped dt-responsive nowrap">
+                    <thead>
                         <tr>
-                            <td><?= $no++ ?></td>
-                            <td><?= $s->nama ?></td>
-                            <td><?= $s->nama_kelas ?></td>
-                            <td><?= $s->alamat ?></td>
-                            <td><?= $s->telp ?></td>
-                            <td>
-                                <a href="<?= base_url() ?>siswa/detail/<?= $s->id_siswa ?>" class="btn btn-success text-white" data-toggle="tooltip" data-placement="top" title="Detail">
-                                    <i class="fas fa-eye"></i>
-                                </a>
-                                <a href="" class="btn btn-warning text-white" data-toggle="tooltip" data-placement="top" title="Edit">
-                                    <i class="fas fa-edit"></i>
-                                </a>
-                                <a href="<?= base_url() ?>siswa/hapus/<?= $s->id_siswa ?>" class="btn btn-danger" data-toggle="tooltip" data-placement="top" title="Hapus">
-                                    <i class="fas fa-trash"></i>
-                                </a>
-                            </td>
+                            <th>No</th>
+                            <th>Nama</th>
+                            <th>Kelas</th>
+                            <th>Alamat</th>
+                            <th>No. Telepon</th>
+                            <th>Opsi</th>
                         </tr>
-                    <?php endforeach ?>
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        <?php $no = 1; foreach($siswa as $s): ?>
+                            <tr>
+                                <td><?= $no++ ?></td>
+                                <td><?= $s->nama ?></td>
+                                <td><?= $s->nama_kelas ?></td>
+                                <td><?= $s->alamat ?></td>
+                                <td><?= $s->telp ?></td>
+                                <td>
+                                    <a href="<?= base_url() ?>siswa/detail/<?= $s->id_siswa ?>" class="btn btn-success text-white" data-toggle="tooltip" data-placement="top" title="Detail">
+                                        <i class="fas fa-eye"></i>
+                                    </a>
+                                    <a href="<?= base_url() ?>siswa/edit/<?= $s->id_siswa ?>" class="btn btn-warning text-white" data-toggle="tooltip" data-placement="top" title="Edit">
+                                        <i class="fas fa-edit"></i>
+                                    </a>
+                                    <a href="<?= base_url() ?>siswa/hapus/<?= $s->id_siswa ?>" class="btn btn-danger" data-toggle="tooltip" data-placement="top" title="Hapus">
+                                        <i class="fas fa-trash"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        <?php endforeach ?>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 	
