@@ -1,4 +1,5 @@
 <?php
+header("Set-Cookie: cross-site-cookie=localhost; SameSite=None; Secure");
 /**
  * CodeIgniter
  *

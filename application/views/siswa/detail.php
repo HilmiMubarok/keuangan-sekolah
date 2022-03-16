@@ -145,7 +145,10 @@
                         </div>
                         <div class="form-group">
                             <label>Tanggal</label>
-                            <input	kendal>Nominal</label>
+                            <input type="text" id="datepicker" name="tanggal" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>Nominal</label>
                             <input type="number" class="form-control" name="nominal" placeholder="Masukkan Nominal">
                         </div>
                         <div class="form-group">
