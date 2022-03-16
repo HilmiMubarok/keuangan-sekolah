@@ -22,7 +22,7 @@
 				<li class="nav-item text-center">
 					<h5 class="text-dark d-inline font-weight-bold">SMK NU 02 ROWOSARI</h5>
 					<br>
-					<small>Tahun Ajaran 2020/2021</small>
+					<!-- <small>Tahun Ajaran 2020/2021</small> -->
 				</li>
 			</ul>
 
