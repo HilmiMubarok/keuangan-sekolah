@@ -42,6 +42,15 @@
 
   <script>
     $(document).ready(function() {
+      // if window less 600 px, add class to body 
+      if ($(window).width() < 780) {
+        $('body').addClass('sidebar-toggled');
+        $('.navbar-nav').addClass('toggled');
+      } else {
+        $('body').removeClass('sidebar-toggled');
+        $('.navbar-nav').removeClass('toggled');
+      }
+      
       $('[data-toggle="tooltip"]').tooltip()
 
       $('#dataTable').DataTable();

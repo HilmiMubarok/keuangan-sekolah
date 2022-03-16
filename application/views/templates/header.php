@@ -15,17 +15,17 @@
 		<!-- Custom styles for this template-->
 		<link href="<?= base_url() ?>assets/css/sb-admin-2.min.css" rel="stylesheet">
 		<link href="<?= base_url() ?>assets/css/datepicker.min.css" rel="stylesheet">
-		<link href="<?= base_url() ?>assets/css/style.css" rel="stylesheet">
-
+		
 		<!-- DataTable -->
 		<!-- https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css
-https://cdn.datatables.net/1.11.4/css/dataTables.bootstrap4.min.css
-https://cdn.datatables.net/responsive/2.2.9/css/responsive.bootstrap4.min.css -->
-
+		https://cdn.datatables.net/1.11.4/css/dataTables.bootstrap4.min.css
+		https://cdn.datatables.net/responsive/2.2.9/css/responsive.bootstrap4.min.css -->
+		
 		<link rel="stylesheet" href="<?= base_url() ?>assets/css/dataTables.bootstrap4.min.css">
 		<link rel="stylesheet" href="<?= base_url() ?>assets/css/responsive.bootstrap4.min.css">
-
+		
 		<link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+		<link href="<?= base_url() ?>assets/css/style.css" rel="stylesheet">
 
 	</head>
 
