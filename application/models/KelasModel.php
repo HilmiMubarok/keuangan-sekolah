@@ -17,9 +17,10 @@ class KelasModel extends CI_Model
 
     public function getSiswaByKelas($kelas_id)
     {
-        $this->db->join('kelas', 'kelas.id_kelas = siswa.kelas_id');
-        $this->db->join('jurusan', 'jurusan.id_jurusan = kelas.jurusan_id');
-        $this->db->where('kelas.id_kelas', $kelas_id);
+        $this->db->join('kelas', 'kelas.id_kelas = siswa.kelas_id', 'left');
+        $this->db->join('jurusan', 'jurusan.id_jurusan = kelas.jurusan_id', 'left');
+        // $this->db->where();
+        $this->db->where(['siswa.status' => 'siswa', 'kelas.id_kelas' => $kelas_id]);
         return $this->db->get('siswa');
     }
 
