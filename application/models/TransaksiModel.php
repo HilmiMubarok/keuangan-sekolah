@@ -12,6 +12,7 @@ class TransaksiModel extends CI_Model
             return $this->db->get('pengeluaran')->result();
         } else {
             $this->db->join('jenis_pemasukan', 'jenis_pemasukan.id_jenis_pemasukan = pemasukan.jenis_pemasukan_id');
+            $this->db->join('siswa', 'pemasukan.siswa_id = siswa.id_siswa', 'left');
             $this->db->join('users', 'users.id_user = pemasukan.user_id');
             return $this->db->get('pemasukan')->result();
         }
@@ -27,6 +28,7 @@ class TransaksiModel extends CI_Model
             return $this->db->get('pengeluaran')->result();
         } else {
             $this->db->join('jenis_pemasukan', 'jenis_pemasukan.id_jenis_pemasukan = pemasukan.jenis_pemasukan_id');
+            $this->db->join('siswa', 'pemasukan.siswa_id = siswa.id_siswa', 'left');
             $this->db->join('users', 'users.id_user = pemasukan.user_id');
             $this->db->where("MONTH(pemasukan.tanggal)", $month);
             $this->db->where("YEAR(pemasukan.tanggal)", $year);
@@ -44,6 +46,7 @@ class TransaksiModel extends CI_Model
             return $this->db->get('pengeluaran')->result();
         } else {
             $this->db->join('jenis_pemasukan', 'jenis_pemasukan.id_jenis_pemasukan = pemasukan.jenis_pemasukan_id');
+            $this->db->join('siswa', 'pemasukan.siswa_id = siswa.id_siswa', 'left');
             $this->db->join('users', 'users.id_user = pemasukan.user_id');
             $this->db->where("pemasukan.tanggal >=", $start);
             $this->db->where("pemasukan.tanggal <=", $end);

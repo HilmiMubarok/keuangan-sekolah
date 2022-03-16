@@ -106,6 +106,7 @@
                                     <th>Tanggal</th>
                                     <th>Kategori</th>
                                     <th>Nominal</th>
+                                    <th>Sumber</th>
                                     <th>Keterangan</th>
                                     <th>Penginput</th>
                                 </tr>
@@ -117,6 +118,7 @@
                                         <td><?= formatHariTanggal($p->tanggal) ?></td>
                                         <td><?= $p->nama_jenis_pemasukan ?></td>
                                         <td><?= $p->nominal ?></td>
+                                        <td><?= $p->sumber_pemasukan ?></td>
                                         <td><?= $p->keterangan ?></td>
                                         <td><?= $p->user_name ?></td>
                                     </tr>

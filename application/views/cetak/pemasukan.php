@@ -83,6 +83,7 @@
 					<tr>
 						<th>Kategori</th>
 						<th>Tanggal</th>
+						<th>Sumber</th>
 						<th>Keterangan</th>
 						<th>Diinput oleh</th>
 						<th>Nominal</th>
@@ -93,6 +94,7 @@
                         <tr>
                             <td><?= $p->nama_jenis_pemasukan ?></td>
                             <td><?= formatHariTanggal($p->tanggal) ?></td>
+                            <td><?= $p->nama ?></td>
                             <td><?= $p->keterangan ?></td>
                             <td><?= $p->user_name ?></td>
                             <td><?= "Rp. ". number_format($p->nominal) ?></td>
