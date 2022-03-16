@@ -17,37 +17,45 @@ class Cetak extends CI_Controller {
 
 	public function pengeluaran($type = null)
 	{
+
+		$type = $this->input->get('jenis');
+
 		$data['title'] = 'Laporan Pengeluaran';
         $data['jabatan']   = $this->session->userdata('role');
         $data['nama_user'] = $this->session->userdata('name');
 		$data['waktu']   = formatHariTanggal(date('d-M-Y'));
-		$data['pengeluaran'] = $this->TransaksiModel->get('pengeluaran');
-		$data['total_pengeluaran'] = $this->TransaksiModel->getTotalTransaksi("pengeluaran")->nominal;
+
 
 		switch ($type) {
-			case 'periode':
+			case 'all':
+				$data['pengeluaran'] = $this->TransaksiModel->get('pengeluaran');
+				$data['total_pengeluaran'] = $this->TransaksiModel->getTotalTransaksi("pengeluaran")->nominal;
 
-
-				var_dump($this->uri->segment()); die;
 				$this->pdf->load_view('cetak/pengeluaran', $data);
 				$this->pdf->render();
 				$this->pdf->stream("laporan_pengeluaran_periode.pdf", array('Attachment'=>0));
 				break;
-
-			case 'bulan':
-				# code...
-				break;
 			
-			case 'tahun':
-				# code...
-				break;
+			case 'bulan':
+				$month = $this->input->get('bulan');
+				$year_now = date('Y');
+				$data['pengeluaran'] = $this->TransaksiModel->getByMonth('pengeluaran', $month, $year_now);
+				$data['total_pengeluaran'] = $this->TransaksiModel->getTotalTransaksi("pengeluaran")->nominal;
 
-			default:
 				$this->pdf->load_view('cetak/pengeluaran', $data);
 				$this->pdf->render();
-				$this->pdf->stream("laporan_pengeluaran.pdf", array('Attachment'=>0));
+				$this->pdf->stream("laporan_pengeluaran_periode.pdf", array('Attachment'=>0));
+				
+				// echo "<pre>";
+				// var_dump($data['pengeluaran']); die;
+				break;
+			
+			default:
+				echo "Periode";	
 				break;
 		}
+
+
 	}
 
 	public function notaPengeluaran($id)

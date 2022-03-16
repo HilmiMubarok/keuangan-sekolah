@@ -104,19 +104,23 @@
                     </tr>
 				</tbody>
 			</table>
-			<div class="ttd">
-				<div class="content ttd-item">
-					<?= $waktu ?> <br><br><br><br><br> <?= $this->session->userdata('name'); ?>
-				</div>
-                <div class="content ttd-item">
-					<?= $waktu ?> <br><br><br><br><br> <?= $this->session->userdata('name'); ?>
-				</div>
-			</div>
-            <div class="ttd">
-				<div class="content ttd-item-1">
-					<?= $waktu ?> <br><br><br><br><br> <?= $this->session->userdata('name'); ?>
-				</div>
-			</div>
+			<table border="0" style="margin-top: 20px; width:100%">
+				<tr>
+					<td colspan="3" align="center"><?= $waktu ?></td>
+				</tr>
+				<tr>
+					<td align="center" style="width:33%;height: 150px; vertical-align:bottom">
+						<?= $this->session->userdata('name'); ?>
+					</td>
+					<td align="center" style="width:33%;height: 150px; vertical-align:bottom">
+						<?= $this->session->userdata('name'); ?>
+					</td>
+					<td align="center" style="width:33%;height: 150px; vertical-align:bottom">
+						<?= $this->session->userdata('name'); ?>
+					</td>
+				</tr>
+
+			</table>
 		</div>
 	</div>
 </body>

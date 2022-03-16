@@ -17,6 +17,18 @@ class TransaksiModel extends CI_Model
         }
     }
 
+    public function getByMonth($type, $month, $year)
+    {
+        if($type == "pengeluaran"){
+            $this->db->join('jenis_pengeluaran', 'jenis_pengeluaran.id_jenis_pengeluaran = pengeluaran.jenis_pengeluaran_id');
+            $this->db->join('users', 'users.id_user = pengeluaran.user_id');
+            $this->db->where("MONTH(pengeluaran.tanggal)", $month);
+            $this->db->where("YEAR(pengeluaran.tanggal)", $year);
+            return $this->db->get('pengeluaran')->result();
+
+        }
+    }
+
     public function getTotalTransaksi($type)
     {
         if($type == "pengeluaran"){

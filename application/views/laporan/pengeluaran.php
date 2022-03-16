@@ -24,7 +24,7 @@
                     <h5 class="card-title">Laporan Pengeluaran</h5>
                 </div>
                 <div class="card-body">
-                    <form action="<?= base_url("cetak/aktiva_tetap") ?>" method="GET">
+                    <form action="<?= base_url("cetak/pengeluaran") ?>" method="GET">
 
                         <div class="row">
                             <div class="col-12 col-lg-4">
