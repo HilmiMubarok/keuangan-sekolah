@@ -18,7 +18,7 @@
 
     
     <div class="row">
-        <div class="col-6">
+        <div class="col-12 col-lg-6 mb-3">
             <div class="card shadow mb-3">
                 <div class="card-header bg-success text-white">
                     <h5 class="card-title">Tambah Kelas</h5>
@@ -45,54 +45,50 @@
             </div> <!-- End Card -->
         </div>
 
-        <div class="col-6 mx-auto">
+        <div class="col-12 col-lg-6 mb-3 mx-auto">
             <div class="card shadow mb-3">
                 <div class="card-header text-white bg-primary">
                     <h5 class="card-title">Daftar Kelas</h5>
                 </div>
                 <div class="card-body">
-                    <table class="table table-hover table-stripped table-bordered" id="dataTable">
-                        <thead>
-                            <tr>
-                                <th>No</th>
-                                <th>Nama Kelas</th>
-                                <th>Jurusan</th>
-                                <th>Opsi</th>
-                            </tr>
-                        </thead>
-                        <tbody>
+                    <div class="table-responsive">
+                        <table class="table table-hover table-stripped table-bordered" id="dataTable">
+                            <thead>
+                                <tr>
+                                    <th>No</th>
+                                    <th>Nama Kelas</th>
+                                    <th>Jurusan</th>
+                                    <th>Opsi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
 
-        <?php if (count($kelas) < 1): ?>
-                            <tr>
-                                <td colspan="4" class="text-center h3 p-5">Data Kosong</td>
-                            </tr>
-        <?php endif ?>
-        <?php $no = 1; foreach ($kelas as $k): ?>
-                            <tr>
-                                <td><?= $no ?></td>
-                                <td><?= $k->nama_kelas ?></td>
-                                <td><?= $k->nama_jurusan ?></td>
-                                <td>
-                                    <a href="<?= base_url() ?>kelas/detail/<?= $k->id_kelas ?>">
-                                        <button class="btn btn-success text-white">
+            <?php if (count($kelas) < 1): ?>
+                                <tr>
+                                    <td colspan="4" class="text-center h3 p-5">Data Kosong</td>
+                                </tr>
+            <?php endif ?>
+            <?php $no = 1; foreach ($kelas as $k): ?>
+                                <tr>
+                                    <td><?= $no ?></td>
+                                    <td><?= $k->nama_kelas ?></td>
+                                    <td><?= (!$k->nama_jurusan ? "Jurusan Dihapus" : $k->nama_jurusan) ?></td>
+                                    <td>
+                                        <a href="<?= base_url() ?>kelas/detail/<?= $k->id_kelas ?>" class="btn btn-success text-white" data-toggle="tooltip" data-placement="top" title="Detail">
                                             <i class="fas fa-eye"></i>
-                                        </button>
-                                    </a>
-                                    <a href="<?= base_url() ?>kelas/edit/<?= $k->id_kelas ?>">
-                                        <button class="btn btn-warning text-white">
+                                        </a>
+                                        <a href="<?= base_url() ?>kelas/edit/<?= $k->id_kelas ?>" class="btn btn-warning text-white" data-toggle="tooltip" data-placement="top" title="Edit">
                                             <i class="fas fa-edit"></i>
-                                        </button>
-                                    </a>
-                                    <a href="<?= base_url() ?>kelas/hapus/<?= $k->id_kelas ?>">
-                                        <button class="btn btn-danger">
+                                        </a>
+                                        <a href="<?= base_url() ?>kelas/hapus/<?= $k->id_kelas ?>" class="btn btn-danger" data-toggle="tooltip" data-placement="top" title="Hapus" onclick="return confirm('Apakah anda yakin ingin menghapus data ini?')">
                                             <i class="fas fa-trash"></i>
-                                        </button>
-                                    </a>
-                                </td>
-                            </tr>
-        <?php $no++; endforeach ?>
-                        </tbody>
-                    </table>
+                                        </a>
+                                    </td>
+                                </tr>
+            <?php $no++; endforeach ?>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div> <!-- col -->
