@@ -88,7 +88,7 @@
                         </div>
                         <div class="form-group">
                             <label>Tanggal</label>
-                            <input type="date" name="tanggal" class="form-control">
+                            <input type="text" name="tanggal" id="datepicker" class="form-control">
                         </div>
                         <div class="form-group">
                             <label>Nominal</label>
