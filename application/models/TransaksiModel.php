@@ -75,9 +75,9 @@ class TransaksiModel extends CI_Model
         return $this->db->update("kelas", $data, $id);
     }
 
-    public function delete($id)
+    public function delete($type, $id)
     {
-        return $this->db->delete("kelas", $id);
+        return $this->db->delete($type, $id);
     }
 }
 
