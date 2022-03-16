@@ -29,6 +29,23 @@ class TransaksiModel extends CI_Model
         }
     }
 
+    public function getByPeriode($type, $start, $end)
+    {
+        if($type == "pengeluaran") {
+            $this->db->join('jenis_pengeluaran', 'jenis_pengeluaran.id_jenis_pengeluaran = pengeluaran.jenis_pengeluaran_id');
+            $this->db->join('users', 'users.id_user = pengeluaran.user_id');
+            $this->db->where("pengeluaran.tanggal >=", $start);
+            $this->db->where("pengeluaran.tanggal <=", $end);
+            return $this->db->get('pengeluaran')->result();
+        } else {
+            $this->db->join('jenis_pemasukan', 'jenis_pemasukan.id_jenis_pemasukan = pemasukan.jenis_pemasukan_id');
+            $this->db->join('users', 'users.id_user = pemasukan.user_id');
+            $this->db->where("pemasukan.tanggal >=", $start);
+            $this->db->where("pemasukan.tanggal <=", $end);
+            return $this->db->get('pemasukan')->result();
+        }
+    }
+
     public function getTotalTransaksi($type, $type_laporan = "", $data = [])
     {
         if($type == "pengeluaran"){
@@ -36,7 +53,9 @@ class TransaksiModel extends CI_Model
                 $this->db->where("MONTH(pengeluaran.tanggal)", $data['bulan']);
                 $this->db->select_sum('pengeluaran.nominal');
             } elseif ($type_laporan == "periode"){
-
+                $this->db->where("pengeluaran.tanggal >=", $data['start']);
+                $this->db->where("pengeluaran.tanggal <=", $data['end']);
+                $this->db->select_sum('pengeluaran.nominal');
             } else {
                 $this->db->select_sum('nominal');
             }

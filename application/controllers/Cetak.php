@@ -76,23 +76,31 @@ class Cetak extends CI_Controller {
 						$bulan = "Desember";
 						break;
 				}
-				$data['title'] = 'Laporan Pengeluaran Bulan ' .$bulan;
 				$year_now = date('Y');
+				$data['title'] = 'Laporan Pengeluaran Bulan ' .$bulan. ' Tahun ' .$year_now;
 				$data['pengeluaran'] = $this->TransaksiModel->getByMonth('pengeluaran', $month, $year_now);
 				$data['total_pengeluaran'] = $this->TransaksiModel->getTotalTransaksi("pengeluaran", "bulan", ['bulan' => $month])->nominal;
-
 
 
 				$this->pdf->load_view('cetak/pengeluaran', $data);
 				$this->pdf->render();
 				$this->pdf->stream("laporan_pengeluaran_periode.pdf", array('Attachment'=>0));
 				
-				// echo "<pre>";
-				// var_dump($data['pengeluaran']); die;
 				break;
 			
 			default:
-				echo "Periode";	
+				$start = $this->input->get('tgl_start');
+				$end = $this->input->get('tgl_end');
+				
+				$year_now = date('Y');
+				$data['title'] = 'Laporan Pengeluaran Periode ' .formatHariTanggal($start, false). ' - ' .formatHariTanggal($end, false);
+				$data['pengeluaran'] = $this->TransaksiModel->getByPeriode('pengeluaran', $start, $end);
+				$data['total_pengeluaran'] = $this->TransaksiModel->getTotalTransaksi("pengeluaran", "periode", ['start' => $start, 'end' => $end])->nominal;
+
+
+				$this->pdf->load_view('cetak/pengeluaran', $data);
+				$this->pdf->render();
+				$this->pdf->stream("laporan_pengeluaran_periode.pdf", array('Attachment'=>0));
 				break;
 		}
 
