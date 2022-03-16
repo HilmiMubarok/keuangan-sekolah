@@ -17,9 +17,9 @@ class Cetak extends CI_Controller {
 
 	public function pengeluaran($type = null)
 	{
-
 		$type = $this->input->get('jenis');
-		
+		$now = date('Y-m-d H-i-s a', time());
+
         $data['jabatan']   = $this->session->userdata('role');
         $data['nama_user'] = $this->session->userdata('name');
 		$data['waktu']   = formatHariTanggal(date('d-M-Y'));
@@ -33,7 +33,7 @@ class Cetak extends CI_Controller {
 
 				$this->pdf->load_view('cetak/pengeluaran', $data);
 				$this->pdf->render();
-				$this->pdf->stream("laporan_pengeluaran_periode.pdf", array('Attachment'=>0));
+				$this->pdf->stream("{$now}_Laporan Pengeluaran Semua.pdf", array('Attachment'=>0));
 				break;
 			
 			case 'bulan':
@@ -84,7 +84,7 @@ class Cetak extends CI_Controller {
 
 				$this->pdf->load_view('cetak/pengeluaran', $data);
 				$this->pdf->render();
-				$this->pdf->stream("laporan_pengeluaran_periode.pdf", array('Attachment'=>0));
+				$this->pdf->stream("{$now}_Laporan Pengeluaran Bulan {$bulan}  {$year_now}.pdf", array('Attachment'=>0));
 				
 				break;
 			
@@ -100,7 +100,98 @@ class Cetak extends CI_Controller {
 
 				$this->pdf->load_view('cetak/pengeluaran', $data);
 				$this->pdf->render();
-				$this->pdf->stream("laporan_pengeluaran_periode.pdf", array('Attachment'=>0));
+				$this->pdf->stream("{$now}_Laporan Pengeluaran Periode {$start}_{$end}.pdf", array('Attachment'=>0));
+				break;
+		}
+	}
+
+	public function pemasukan($type = null)
+	{
+
+		$type = $this->input->get('jenis');
+		$now = date('Y-m-d H-i-s a', time());
+
+        $data['jabatan']   = $this->session->userdata('role');
+        $data['nama_user'] = $this->session->userdata('name');
+		$data['waktu']   = formatHariTanggal(date('d-M-Y'));
+
+
+		switch ($type) {
+			case 'all':
+				$data['title'] = 'Laporan Pemasukan';
+				$data['pemasukan'] = $this->TransaksiModel->get('pemasukan');
+				$data['total_pemasukan'] = $this->TransaksiModel->getTotalTransaksi("pemasukan")->nominal;
+
+				$this->pdf->load_view('cetak/pemasukan', $data);
+				$this->pdf->render();
+				$this->pdf->stream("{$now}_Laporan Pemasukan Semua.pdf", array('Attachment'=>0));
+				break;
+			
+			case 'bulan':
+				$month = $this->input->get('bulan');
+				switch ($month) {
+					case '1':
+						$bulan = "Januari";
+						break;
+					case '2':
+						$bulan = "Februari";
+						break;
+					case '3':
+						$bulan = "Maret";
+						break;
+					case '4':
+						$bulan = "April";
+						break;
+					case '5':
+						$bulan = "Mei";
+						break;
+					case '6':
+						$bulan = "Juni";
+						break;
+					case '7':
+						$bulan = "Juli";
+						break;
+					case '8':
+						$bulan = "Agustus";
+						break;
+					case '9':
+						$bulan = "September";
+						break;
+					case '10':
+						$bulan = "Oktober";
+						break;
+					case '11':
+						$bulan = "November";
+						break;
+					default:
+						$bulan = "Desember";
+						break;
+				}
+				$year_now = date('Y');
+				$data['title'] = 'Laporan Pemasukan Bulan ' .$bulan. ' Tahun ' .$year_now;
+				$data['pemasukan'] = $this->TransaksiModel->getByMonth('pemasukan', $month, $year_now);
+				$data['total_pemasukan'] = $this->TransaksiModel->getTotalTransaksi("pemasukan", "bulan", ['bulan' => $month])->nominal;
+
+
+				$this->pdf->load_view('cetak/pemasukan', $data);
+				$this->pdf->render();
+				$this->pdf->stream("{$now}_Laporan Pemasukan Bulan {$bulan}  {$year_now}.pdf", array('Attachment'=>0));
+				
+				break;
+			
+			default:
+				$start = $this->input->get('tgl_start');
+				$end = $this->input->get('tgl_end');
+				
+				$year_now = date('Y');
+				$data['title'] = 'Laporan Pemasukan Periode ' .formatHariTanggal($start, false). ' - ' .formatHariTanggal($end, false);
+				$data['pemasukan'] = $this->TransaksiModel->getByPeriode('pemasukan', $start, $end);
+				$data['total_pemasukan'] = $this->TransaksiModel->getTotalTransaksi("pemasukan", "periode", ['start' => $start, 'end' => $end])->nominal;
+
+
+				$this->pdf->load_view('cetak/pemasukan', $data);
+				$this->pdf->render();
+				$this->pdf->stream("{$now}_Laporan Pemasukan Periode {$start}_{$end}.pdf", array('Attachment'=>0));
 				break;
 		}
 

@@ -3,7 +3,7 @@
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="<?= base_url('dashboard') ?>">Dashboard</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Laporan Pengeluaran</li>
+            <li class="breadcrumb-item active" aria-current="page">Laporan Pemasukan</li>
         </ol>
     </nav>
 	
@@ -21,10 +21,10 @@
         <div class="col">
             <div class="card shadow mb-3">
                 <div class="card-header bg-success text-white">
-                    <h5 class="card-title">Laporan Pengeluaran</h5>
+                    <h5 class="card-title">Laporan Pemasukan</h5>
                 </div>
                 <div class="card-body">
-                    <form action="<?= base_url("cetak/pengeluaran") ?>" method="GET">
+                    <form action="<?= base_url("cetak/pemasukan") ?>" method="GET">
 
                         <div class="row">
                             <div class="col-12 col-lg-4">
@@ -95,7 +95,7 @@
         <div class="col">
             <div class="card shadow mb-3">
                 <div class="card-header bg-primary text-white">
-                    <h5 class="card-title">Data Pengeluaran</h5>
+                    <h5 class="card-title">Data Pemasukan</h5>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -111,11 +111,11 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php $no = 1; foreach($pengeluaran as $p): ?>
+                                <?php $no = 1; foreach($pemasukan as $p): ?>
                                     <tr>
                                         <td><?= $no++ ?></td>
                                         <td><?= formatHariTanggal($p->tanggal) ?></td>
-                                        <td><?= $p->nama_jenis_pengeluaran ?></td>
+                                        <td><?= $p->nama_jenis_pemasukan ?></td>
                                         <td><?= $p->nominal ?></td>
                                         <td><?= $p->keterangan ?></td>
                                         <td><?= $p->user_name ?></td>

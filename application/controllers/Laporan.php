@@ -32,6 +32,19 @@ class Laporan extends CI_Controller {
         $this->load->view('templates/footer', $data);
 	}
 
+	public function pemasukan()
+	{
+		$data['title'] = 'Laporan Pemasukan';
+        $data['jabatan']   = $this->session->userdata('role');
+        $data['nama_user'] = $this->session->userdata('name');
+		$data['pemasukan'] = $this->TransaksiModel->get('pemasukan');
+		
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/navbar', $data);
+        $this->load->view('laporan/pemasukan', $data);
+        $this->load->view('templates/footer', $data);
+	}
+
 	public function admin()
 	{
 		$data['title'] = "Laporan Admin";

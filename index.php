@@ -1,5 +1,6 @@
 <?php
 header("Set-Cookie: cross-site-cookie=localhost; SameSite=None; Secure");
+date_default_timezone_set('Asia/Jakarta');
 /**
  * CodeIgniter
  *

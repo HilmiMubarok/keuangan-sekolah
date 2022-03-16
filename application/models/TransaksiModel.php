@@ -25,7 +25,12 @@ class TransaksiModel extends CI_Model
             $this->db->where("MONTH(pengeluaran.tanggal)", $month);
             $this->db->where("YEAR(pengeluaran.tanggal)", $year);
             return $this->db->get('pengeluaran')->result();
-
+        } else {
+            $this->db->join('jenis_pemasukan', 'jenis_pemasukan.id_jenis_pemasukan = pemasukan.jenis_pemasukan_id');
+            $this->db->join('users', 'users.id_user = pemasukan.user_id');
+            $this->db->where("MONTH(pemasukan.tanggal)", $month);
+            $this->db->where("YEAR(pemasukan.tanggal)", $year);
+            return $this->db->get('pemasukan')->result();
         }
     }
 
@@ -61,7 +66,17 @@ class TransaksiModel extends CI_Model
             }
             return $this->db->get('pengeluaran')->row();
         } else {
-            $this->db->select_sum('nominal');
+            if($type_laporan == "bulan"){
+                $this->db->where("MONTH(pemasukan.tanggal)", $data['bulan']);
+                $this->db->select_sum('pemasukan.nominal');
+            } elseif ($type_laporan == "periode"){
+                $this->db->where("pemasukan.tanggal >=", $data['start']);
+                $this->db->where("pemasukan.tanggal <=", $data['end']);
+                $this->db->select_sum('pemasukan.nominal');
+            } else {
+                $this->db->select_sum('nominal');
+            }
+            // $this->db->select_sum('nominal');
             return $this->db->get('pemasukan')->row();
         }
         

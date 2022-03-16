@@ -89,9 +89,9 @@
 					</tr>
 				</thead>
 				<tbody>
-                    <?php foreach($pengeluaran as $p): ?>
+                    <?php foreach($pemasukan as $p): ?>
                         <tr>
-                            <td><?= $p->nama_jenis_pengeluaran ?></td>
+                            <td><?= $p->nama_jenis_pemasukan ?></td>
                             <td><?= formatHariTanggal($p->tanggal) ?></td>
                             <td><?= $p->keterangan ?></td>
                             <td><?= $p->user_name ?></td>
@@ -99,8 +99,8 @@
                         </tr>
                     <?php endforeach ?>
                     <tr>
-                        <th colspan="4">Total Pengeluaran</th>
-                        <td><?= "Rp.". number_format($total_pengeluaran) ?></td>
+                        <th colspan="4">Total pemasukan</th>
+                        <td><?= "Rp.". number_format($total_pemasukan) ?></td>
                     </tr>
 				</tbody>
 			</table>
