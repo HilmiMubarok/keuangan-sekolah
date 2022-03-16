@@ -74,7 +74,7 @@
 		</header>
 		<div class="body-header">
 			<div class="body-text">
-				Laporan Pengeluaran
+				<?= $title ?>
 			</div>
 		</div>
 		<div class="body">

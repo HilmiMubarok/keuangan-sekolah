@@ -19,8 +19,7 @@ class Cetak extends CI_Controller {
 	{
 
 		$type = $this->input->get('jenis');
-
-		$data['title'] = 'Laporan Pengeluaran';
+		
         $data['jabatan']   = $this->session->userdata('role');
         $data['nama_user'] = $this->session->userdata('name');
 		$data['waktu']   = formatHariTanggal(date('d-M-Y'));
@@ -28,6 +27,7 @@ class Cetak extends CI_Controller {
 
 		switch ($type) {
 			case 'all':
+				$data['title'] = 'Laporan Pengeluaran';
 				$data['pengeluaran'] = $this->TransaksiModel->get('pengeluaran');
 				$data['total_pengeluaran'] = $this->TransaksiModel->getTotalTransaksi("pengeluaran")->nominal;
 
@@ -38,9 +38,50 @@ class Cetak extends CI_Controller {
 			
 			case 'bulan':
 				$month = $this->input->get('bulan');
+				switch ($month) {
+					case '1':
+						$bulan = "Januari";
+						break;
+					case '2':
+						$bulan = "Februari";
+						break;
+					case '3':
+						$bulan = "Maret";
+						break;
+					case '4':
+						$bulan = "April";
+						break;
+					case '5':
+						$bulan = "Mei";
+						break;
+					case '6':
+						$bulan = "Juni";
+						break;
+					case '7':
+						$bulan = "Juli";
+						break;
+					case '8':
+						$bulan = "Agustus";
+						break;
+					case '9':
+						$bulan = "September";
+						break;
+					case '10':
+						$bulan = "Oktober";
+						break;
+					case '11':
+						$bulan = "November";
+						break;
+					default:
+						$bulan = "Desember";
+						break;
+				}
+				$data['title'] = 'Laporan Pengeluaran Bulan ' .$bulan;
 				$year_now = date('Y');
 				$data['pengeluaran'] = $this->TransaksiModel->getByMonth('pengeluaran', $month, $year_now);
-				$data['total_pengeluaran'] = $this->TransaksiModel->getTotalTransaksi("pengeluaran")->nominal;
+				$data['total_pengeluaran'] = $this->TransaksiModel->getTotalTransaksi("pengeluaran", "bulan", ['bulan' => $month])->nominal;
+
+
 
 				$this->pdf->load_view('cetak/pengeluaran', $data);
 				$this->pdf->render();

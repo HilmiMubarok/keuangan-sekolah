@@ -29,15 +29,23 @@ class TransaksiModel extends CI_Model
         }
     }
 
-    public function getTotalTransaksi($type)
+    public function getTotalTransaksi($type, $type_laporan = "", $data = [])
     {
         if($type == "pengeluaran"){
-            $this->db->select_sum('nominal');
+            if($type_laporan == "bulan"){
+                $this->db->where("MONTH(pengeluaran.tanggal)", $data['bulan']);
+                $this->db->select_sum('pengeluaran.nominal');
+            } elseif ($type_laporan == "periode"){
+
+            } else {
+                $this->db->select_sum('nominal');
+            }
             return $this->db->get('pengeluaran')->row();
         } else {
             $this->db->select_sum('nominal');
             return $this->db->get('pemasukan')->row();
         }
+        
     }
 
     public function getSiswaByKelas($kelas_id)
