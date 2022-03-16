@@ -33,7 +33,7 @@
     </div>
 
     <div class="col-xl-4 col-md-4 mb-4">
-      <a href="<?= base_url('transaksi/pengeluaran') ?>" class="text-secondary">
+      <a href="<?= base_url('transaksi/pemasukan') ?>" class="text-secondary">
         <div class="card border-left-success shadow h-100 py-2">
           <div class="card-body">
             <div class="row no-gutters align-items-center">
