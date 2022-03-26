@@ -3,7 +3,7 @@
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="<?= base_url('dashboard') ?>">Dashboard</a></li>
-            <li class="breadcrumb-item"><a href="<?= base_url('kelas') ?>">Pemasukan</a></li>
+            <li class="breadcrumb-item"><a href="<?= base_url('transaksi/pemasukan') ?>">Pemasukan</a></li>
             <li class="breadcrumb-item active" aria-current="page">Pemasukan <?= formatHariTanggal($data_pemasukan->tanggal) ?></li>
         </ol>
     </nav>
@@ -19,7 +19,9 @@
                 <li>Tanggal : <b><?= formatHariTanggal($data_pemasukan->tanggal) ?></b></li>
                 <li>Nominal : <b>Rp. <?= number_format($data_pemasukan->nominal) ?></b></li>
                 <li>Keterangan : <b><?= $data_pemasukan->keterangan ?></b></li>
-                <li>Siswa : <b><?= $data_pemasukan->nama ?></b></li>
+                <?php if($data_pemasukan->siswa_id !== "0"):?>
+                    <li>Siswa : <b><?= $data_pemasukan->nama ?></b></li>
+                <?php endif?>
                 <li>Diinput oleh : <b><?= $data_pemasukan->user_name ?></b></li>
             </ul>
         </div>

@@ -51,9 +51,9 @@
                                         <a href="<?= base_url() ?>transaksi/detail/pemasukan/<?= $d->id_pemasukan ?>" class="btn btn-success">
                                             <i class="fas fa-eye"></i>
                                         </a>
-                                        <a href="<?= base_url() ?>transaksi/hapus/pemasukan/<?= $d->id_pemasukan ?>" class="btn btn-danger" onclick="return confirm('Apakah anda yakin ingin menghapus data ini?')">
+                                        <!-- <a href="<?= base_url() ?>transaksi/hapus/pemasukan/<?= $d->id_pemasukan ?>" class="btn btn-danger" onclick="return confirm('Apakah anda yakin ingin menghapus data ini?')">
                                             <i class="fas fa-trash"></i>
-                                        </a>
+                                        </a> -->
                                     </td>
                                 </tr>
                             <?php endforeach ?>

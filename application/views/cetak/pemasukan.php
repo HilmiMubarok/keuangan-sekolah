@@ -101,7 +101,7 @@
                         </tr>
                     <?php endforeach ?>
                     <tr>
-                        <th colspan="4">Total pemasukan</th>
+                        <th colspan="5">Total pemasukan</th>
                         <td><?= "Rp.". number_format($total_pemasukan) ?></td>
                     </tr>
 				</tbody>

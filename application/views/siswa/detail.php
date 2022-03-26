@@ -107,7 +107,7 @@
                             <td><?= "Rp. ". number_format($p->nominal) ?></td>
                             <td><?= $p->keterangan ?></td>
                             <td>
-                                <a href="" class="btn btn-success">
+                                <a href="<?= base_url() ?>transaksi/detail/pemasukan/<?= $p->id_pemasukan ?>" class="btn btn-success">
                                     <i class="fas fa-eye"></i>
                                 </a>
                             </td>
