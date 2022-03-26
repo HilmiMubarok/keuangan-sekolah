@@ -24,7 +24,7 @@
                         </div>
                     </div>
                     <div class="col-auto">
-                        <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                        <i class="fas fa-money-check-alt fa-2x text-gray-300"></i>
                     </div>
                 </div>
             </div>
@@ -44,7 +44,7 @@
                 </div>
               </div>
               <div class="col-auto">
-                <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                <i class="fas fa-credit-card fa-2x text-gray-300"></i>
               </div>
             </div>
           </div>
@@ -68,7 +68,7 @@
                 </div>
               </div>
               <div class="col-auto">
-                <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                <i class="fas fa-user-graduate fa-2x text-gray-300"></i>
               </div>
             </div>
           </div>
@@ -78,7 +78,7 @@
 
     <div class="col-xl-4 col-md-4 mb-4">
       <a href="<?= base_url('kelas') ?>" class="text-secondary">
-        <div class="card border-left-primary shadow h-100 py-2">
+        <div class="card border-left-warning shadow h-100 py-2">
           <div class="card-body">
             <div class="row no-gutters align-items-center">
               <div class="col mr-2">
@@ -92,7 +92,7 @@
                 </div>
               </div>
               <div class="col-auto">
-                <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                <i class="fas fa-archway fa-2x text-gray-300"></i>
               </div>
             </div>
           </div>
@@ -116,7 +116,7 @@
                 </div>
               </div>
               <div class="col-auto">
-                <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                <i class="fas fa-sign fa-2x text-gray-300"></i>
               </div>
             </div>
           </div>
