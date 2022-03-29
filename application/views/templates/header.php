@@ -62,25 +62,27 @@
 				</a>
 			</li>
 
-			<li class="nav-item">
-				<a class="nav-link collapsed" href="#!" data-toggle="collapse" data-target="#collapseData" aria-expanded="true" aria-controls="collapseData">
-					<i class="fas fa-fw fa-book"></i>
-					<span class="font-weight-bold">Data</span>
-				</a>
-				<div id="collapseData" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-				  <div class="bg-white py-2 collapse-inner rounded">
-				    <h6 class="collapse-header">Data</h6>
-				    <a class="collapse-item" href="<?= base_url("jurusan") ?>">Jurusan</a>
-				    <a class="collapse-item" href="<?= base_url("kelas") ?>">Kelas</a>
-				    <a class="collapse-item" href="<?= base_url("siswa") ?>">Siswa</a>
-				    <a class="collapse-item" href="<?= base_url("alumni") ?>">Alumni</a>
-				    <a class="collapse-item" href="<?= base_url("pengeluaran") ?>">Pengeluaran</a>
-				    <a class="collapse-item" href="<?= base_url("pemasukan") ?>">Pemasukan</a>
-				    
-				  </div>
-				</div>
-				
-			</li>
+			<?php if($this->session->userdata('role') != "Monitoring"): ?>
+				<li class="nav-item">
+					<a class="nav-link collapsed" href="#!" data-toggle="collapse" data-target="#collapseData" aria-expanded="true" aria-controls="collapseData">
+						<i class="fas fa-fw fa-book"></i>
+						<span class="font-weight-bold">Data</span>
+					</a>
+					<div id="collapseData" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+					<div class="bg-white py-2 collapse-inner rounded">
+						<h6 class="collapse-header">Data</h6>
+						<a class="collapse-item" href="<?= base_url("jurusan") ?>">Jurusan</a>
+						<a class="collapse-item" href="<?= base_url("kelas") ?>">Kelas</a>
+						<a class="collapse-item" href="<?= base_url("siswa") ?>">Siswa</a>
+						<a class="collapse-item" href="<?= base_url("alumni") ?>">Alumni</a>
+						<a class="collapse-item" href="<?= base_url("pengeluaran") ?>">Pengeluaran</a>
+						<a class="collapse-item" href="<?= base_url("pemasukan") ?>">Pemasukan</a>
+						
+					</div>
+					</div>
+					
+				</li>
+			<?php endif ?>
 
 			<!-- Menu Kategori -->
 			<li class="nav-item">

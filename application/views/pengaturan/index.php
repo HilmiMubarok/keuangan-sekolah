@@ -44,7 +44,7 @@
             </div>
         </div>
 
-        <?php if($this->session->userdata('role') == 'Admin'): ?>
+        <?php if($this->session->userdata('role') == 'Superadmin'): ?>
             <div class="col">
                 <div class="card">
                     <div class="card-header bg-danger text-white">

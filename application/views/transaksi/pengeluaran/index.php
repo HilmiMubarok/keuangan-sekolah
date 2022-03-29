@@ -23,9 +23,12 @@
                     <h5 class="card-title">Daftar Transaksi Pengeluaran</h5>
                 </div>
                 <div class="card-body">
-                    <button class="btn btn-primary mb-3" data-toggle="modal" data-target="#modalAddPengeluaran">
-                        <i class="fas fa-plus"></i> Tambah Pengeluaran
-                    </button>
+			        <?php if($this->session->userdata('role') != "Monitoring"): ?>
+
+                        <button class="btn btn-primary mb-3" data-toggle="modal" data-target="#modalAddPengeluaran">
+                            <i class="fas fa-plus"></i> Tambah Pengeluaran
+                        </button>
+                    <?php endif ?>
                     <table class="table table-bordered table-hover table-striped" id="dataTable">
                         <thead>
                             <tr>
